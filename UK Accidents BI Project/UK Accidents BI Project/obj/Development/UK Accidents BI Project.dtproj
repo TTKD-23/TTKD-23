@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LAPTOP-CURK33BG</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARQnq7UXU2U6mVXbYhW5RXQAAAAACAAAAAAAQZgAAAAEAACAAAADfUQ9hj10bUw3cT+N6UD+t0GDFGd4Yocafln6T3FqeggAAAAAOgAAAAAIAACAAAACNFp6QXc3DKEDNnSb1f/yOoNiShiTjGe/l1s+qPWBqj5AAAADEdCZrnXmUfAv61LEsH3J8vLc42bqA0r34lQrMizBNJdBdAvaq29Mk+EXNEeYAky+g+k/u9sAz1CJ6aGpGRegZIGppMq6h6tyAyoz3uFe2higpOsSAIfcgHIqFCxtynNN/LB00at4smXQjeqs8VY+X+H/kulgsBGh2gcE7AlK/v1L8UqoGjaENEOYbdBsMB3hAAAAAuJcFn8uL/ZHu7xlv2IWXZWjl8A7LldUhDfRaGVBcZBLVKXU9xleoPnu71oE2vMO6k4e5Ee0O3eR1o/AkBrxkQA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARQnq7UXU2U6mVXbYhW5RXQAAAAACAAAAAAAQZgAAAAEAACAAAACOhHJ+ZmZZU9UBcoYf2Fbg32YFr5f73xQ3zK4umVK5QgAAAAAOgAAAAAIAACAAAADhgtmRv5qiJLno7L7HljSpqgr0VhCGz1Gx1iPkvN9jEpAAAAA41vwf5u+Ru0tL40xGVf5qeeJsjzkQoeakow24t0HX0Te3HeB0BzHkS3UG76xUM3D0qxU2w2eET7t8JnN7EAiMltZHZJiz1LsfBrpuGEXdZ5qkZUvMdtolYMiNd4x4Eugx3fddW0Ek+4bgArEJUaBXZ/UFMrdscieJkU+vorZHwEjdybUtB+9Hg7ABCd7VcyVAAAAAWM7yvvYL0AQeFnUvy2WQrttz0ZJ3GPSlAIYt93FyuY9I/UqDh8amvO7a4utifcrpseH8DEv/NX8ffDoR9Ca3Eg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -80,7 +80,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\GITHUB\TTKD-23\THỰC HÀNH\Labs\2021-2022 - BI Project - UK Accidents\Data\csv to excel\postcodes.xlsx;Extended Properties="Excel 12.0 XML;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\GITHUB\TTKD-23\THỰC HÀNH\Labs\2021-2022 - BI Project - UK Accidents\Data\csv to excel\postcodes.xlsx;Extended Properties="EXCEL 12.0 XML;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
