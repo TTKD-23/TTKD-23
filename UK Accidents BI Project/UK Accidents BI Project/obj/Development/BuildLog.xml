@@ -2,28 +2,33 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>UK Accidents BI Project</Name>
-    <LastWriteTime>2021-10-21T08:44:35.2622844Z</LastWriteTime>
+    <LastWriteTime>2021-10-22T05:48:01.1936817Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>SourceToStage.dtsx</Name>
-      <LastWriteTime>2021-10-20T16:16:24.6501914Z</LastWriteTime>
+      <LastWriteTime>2021-10-21T09:16:25Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS.dtsx</Name>
-      <LastWriteTime>2021-10-20T16:16:24.6501914Z</LastWriteTime>
+      <LastWriteTime>2021-10-21T09:16:25Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>NDSToDDS.dtsx</Name>
-      <LastWriteTime>2021-10-20T16:16:24.6501914Z</LastWriteTime>
+      <LastWriteTime>2021-10-21T09:16:25Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Source_to_PCD_OA_Stage.dtsx</Name>
-      <LastWriteTime>2021-10-21T09:06:49.9296748Z</LastWriteTime>
+      <LastWriteTime>2021-10-22T05:48:01.070791Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Source_to_Vehicle_Stage.dtsx</Name>
+      <LastWriteTime>2021-10-22T05:48:00.7817775Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

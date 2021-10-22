@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{9705106E-2C1C-4302-8136-A89BB2125BBD}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{E70C2DAA-3A23-4ED6-9E46-D8DDCA16403F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -967,7 +967,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="155,42"
+          Size="154.666666666667,42"
           Id="Package\Data Flow Task"
           TopLeft="582,198" />
       </GraphLayout>
@@ -979,27 +979,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="162,42"
-          Id="Package\Data Flow Task\PCD_OA Source"
-          TopLeft="463,106" />
-        <NodeLayout
           Size="156,42"
           Id="Package\Data Flow Task\PCD_OA Stage"
           TopLeft="473,209" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Data Flow Task\PCD_OA Source"
+          TopLeft="463,106.649999988377" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="547.5,148">
+          TopLeft="547.5,148.649999988377">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61"
+              EndConnector="0,60.3500000116229"
               Start="0,0"
-              End="0,53.5">
+              End="0,52.8500000116229">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.5" />
+                    End="0,52.8500000116229" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
