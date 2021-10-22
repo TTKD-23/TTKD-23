@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Source_to_Vehicle_Stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{02E959B3-ED09-4249-91EA-20D09FFE287D}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{149732FA-10C2-4B2B-A00E-296B956F154B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,6 +26,18 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=.;Initial Catalog=Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.TTKD_23]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{08450C01-844A-4899-A40D-883C1CA485F4}"
+      DTS:ObjectName="LocalHost.TTKD_23">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=TTKD_23;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -313,8 +325,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Vehicles Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.TTKD_23]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.TTKD_23]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -357,17 +369,6 @@
                       name="Vehicle_Type"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Towing_and_Articulation]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Towing_and_Articulation]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Towing_and_Articulation]"
-                      name="Towing_and_Articulation"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Vehicle_Manoeuvre]"
                       codePage="1252"
                       dataType="str"
@@ -379,39 +380,6 @@
                       name="Vehicle_Manoeuvre"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Vehicle_Location-Restricted_Lane]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_Location-Restricted_Lane]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Vehicle_Location-Restricted_Lane]"
-                      name="Vehicle_Location-Restricted_Lane"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Junction_Location]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Junction_Location]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Junction_Location]"
-                      name="Junction_Location"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Skidding_and_Overturning]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Skidding_and_Overturning]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Skidding_and_Overturning]"
-                      name="Skidding_and_Overturning"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Hit_Object_in_Carriageway]"
                       codePage="1252"
                       dataType="str"
@@ -421,28 +389,6 @@
                       length="50"
                       lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Hit_Object_in_Carriageway]"
                       name="Hit_Object_in_Carriageway"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Vehicle_Leaving_Carriageway]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_Leaving_Carriageway]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Vehicle_Leaving_Carriageway]"
-                      name="Vehicle_Leaving_Carriageway"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Hit_Object_off_Carriageway]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Hit_Object_off_Carriageway]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Hit_Object_off_Carriageway]"
-                      name="Hit_Object_off_Carriageway"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[1st_Point_of_Impact]"
@@ -465,17 +411,6 @@
                       length="50"
                       lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Was_Vehicle_Left_Hand_Drive?]"
                       name="Was_Vehicle_Left_Hand_Drive?"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Journey_Purpose_of_Driver]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Journey_Purpose_of_Driver]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Journey_Purpose_of_Driver]"
-                      name="Journey_Purpose_of_Driver"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Sex_of_Driver]"
@@ -554,17 +489,6 @@
                       lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Driver_IMD_Decile]"
                       name="Driver_IMD_Decile"
                       truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Driver_Home_Area_Type]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Driver_Home_Area_Type]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].Columns[Driver_Home_Area_Type]"
-                      name="Driver_Home_Area_Type"
-                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -587,53 +511,17 @@
                       length="50"
                       name="Vehicle_Type" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Towing_and_Articulation]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Towing_and_Articulation" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_Manoeuvre]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Vehicle_Manoeuvre" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_Location-Restricted_Lane]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Vehicle_Location-Restricted_Lane" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Junction_Location]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Junction_Location" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Skidding_and_Overturning]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Skidding_and_Overturning" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Hit_Object_in_Carriageway]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Hit_Object_in_Carriageway" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_Leaving_Carriageway]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Vehicle_Leaving_Carriageway" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Hit_Object_off_Carriageway]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Hit_Object_off_Carriageway" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[1st_Point_of_Impact]"
                       codePage="1252"
@@ -646,12 +534,6 @@
                       dataType="str"
                       length="50"
                       name="Was_Vehicle_Left_Hand_Drive?" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Journey_Purpose_of_Driver]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Journey_Purpose_of_Driver" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Sex_of_Driver]"
                       codePage="1252"
@@ -694,12 +576,6 @@
                       dataType="str"
                       length="50"
                       name="Driver_IMD_Decile" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Output].ExternalColumns[Driver_Home_Area_Type]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Driver_Home_Area_Type" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -729,13 +605,6 @@
                       lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Vehicle_Type]"
                       name="Vehicle_Type" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Towing_and_Articulation]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Towing_and_Articulation]"
-                      name="Towing_and_Articulation" />
-                    <outputColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Vehicle_Manoeuvre]"
                       codePage="1252"
                       dataType="str"
@@ -743,47 +612,12 @@
                       lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Vehicle_Manoeuvre]"
                       name="Vehicle_Manoeuvre" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Vehicle_Location-Restricted_Lane]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Vehicle_Location-Restricted_Lane]"
-                      name="Vehicle_Location-Restricted_Lane" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Junction_Location]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Junction_Location]"
-                      name="Junction_Location" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Skidding_and_Overturning]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Skidding_and_Overturning]"
-                      name="Skidding_and_Overturning" />
-                    <outputColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Hit_Object_in_Carriageway]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Hit_Object_in_Carriageway]"
                       name="Hit_Object_in_Carriageway" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Vehicle_Leaving_Carriageway]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Vehicle_Leaving_Carriageway]"
-                      name="Vehicle_Leaving_Carriageway" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Hit_Object_off_Carriageway]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Hit_Object_off_Carriageway]"
-                      name="Hit_Object_off_Carriageway" />
                     <outputColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[1st_Point_of_Impact]"
                       codePage="1252"
@@ -798,13 +632,6 @@
                       length="50"
                       lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Was_Vehicle_Left_Hand_Drive?]"
                       name="Was_Vehicle_Left_Hand_Drive?" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Journey_Purpose_of_Driver]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Journey_Purpose_of_Driver]"
-                      name="Journey_Purpose_of_Driver" />
                     <outputColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Sex_of_Driver]"
                       codePage="1252"
@@ -855,13 +682,6 @@
                       lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Driver_IMD_Decile]"
                       name="Driver_IMD_Decile" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Driver_Home_Area_Type]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[Driver_Home_Area_Type]"
-                      name="Driver_Home_Area_Type" />
-                    <outputColumn
                       refId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\Data Flow Task\Vehicles Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -894,7 +714,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[Vehicles Stage]</property>
+                  name="OpenRowset">[dbo].[Vehicles Stage]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -916,7 +736,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">3</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -937,8 +757,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Vehicles Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.TTKD_23]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.TTKD_23]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -975,14 +795,6 @@
                       externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_Type]"
                       lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Vehicle_Type]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].Columns[Towing_and_Articulation]"
-                      cachedCodepage="1258"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Towing_and_Articulation"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Towing_and_Articulation]"
-                      lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Towing_and_Articulation]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].Columns[Vehicle_Manoeuvre]"
                       cachedCodepage="1258"
                       cachedDataType="str"
@@ -991,30 +803,6 @@
                       externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_Manoeuvre]"
                       lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Vehicle_Manoeuvre]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].Columns[Vehicle_Location-Restricted_Lane]"
-                      cachedCodepage="1258"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Vehicle_Location-Restricted_Lane"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_Location-Restricted_Lane]"
-                      lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Vehicle_Location-Restricted_Lane]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].Columns[Junction_Location]"
-                      cachedCodepage="1258"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Junction_Location"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Junction_Location]"
-                      lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Junction_Location]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].Columns[Skidding_and_Overturning]"
-                      cachedCodepage="1258"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Skidding_and_Overturning"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Skidding_and_Overturning]"
-                      lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Skidding_and_Overturning]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].Columns[Hit_Object_in_Carriageway]"
                       cachedCodepage="1258"
                       cachedDataType="str"
@@ -1022,22 +810,6 @@
                       cachedName="Hit_Object_in_Carriageway"
                       externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Hit_Object_in_Carriageway]"
                       lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Hit_Object_in_Carriageway]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].Columns[Vehicle_Leaving_Carriageway]"
-                      cachedCodepage="1258"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Vehicle_Leaving_Carriageway"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_Leaving_Carriageway]"
-                      lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Vehicle_Leaving_Carriageway]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].Columns[Hit_Object_off_Carriageway]"
-                      cachedCodepage="1258"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Hit_Object_off_Carriageway"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Hit_Object_off_Carriageway]"
-                      lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Hit_Object_off_Carriageway]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].Columns[1st_Point_of_Impact]"
                       cachedCodepage="1258"
@@ -1054,14 +826,6 @@
                       cachedName="Was_Vehicle_Left_Hand_Drive?"
                       externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Was_Vehicle_Left_Hand_Drive?]"
                       lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Was_Vehicle_Left_Hand_Drive?]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].Columns[Journey_Purpose_of_Driver]"
-                      cachedCodepage="1258"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Journey_Purpose_of_Driver"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Journey_Purpose_of_Driver]"
-                      lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Journey_Purpose_of_Driver]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].Columns[Sex_of_Driver]"
                       cachedCodepage="1258"
@@ -1118,14 +882,6 @@
                       cachedName="Driver_IMD_Decile"
                       externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Driver_IMD_Decile]"
                       lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Driver_IMD_Decile]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].Columns[Driver_Home_Area_Type]"
-                      cachedCodepage="1258"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Driver_Home_Area_Type"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Driver_Home_Area_Type]"
-                      lineageId="Package\Data Flow Task\Vehicless Source.Outputs[Flat File Source Output].Columns[Driver_Home_Area_Type]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1148,53 +904,17 @@
                       length="50"
                       name="Vehicle_Type" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Towing_and_Articulation]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Towing_and_Articulation" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_Manoeuvre]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Vehicle_Manoeuvre" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_Location-Restricted_Lane]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Vehicle_Location-Restricted_Lane" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Junction_Location]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Junction_Location" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Skidding_and_Overturning]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Skidding_and_Overturning" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Hit_Object_in_Carriageway]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Hit_Object_in_Carriageway" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_Leaving_Carriageway]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Vehicle_Leaving_Carriageway" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Hit_Object_off_Carriageway]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Hit_Object_off_Carriageway" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[1st_Point_of_Impact]"
                       codePage="1252"
@@ -1207,12 +927,6 @@
                       dataType="str"
                       length="50"
                       name="Was_Vehicle_Left_Hand_Drive?" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Journey_Purpose_of_Driver]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Journey_Purpose_of_Driver" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Sex_of_Driver]"
                       codePage="1252"
@@ -1255,12 +969,6 @@
                       dataType="str"
                       length="50"
                       name="Driver_IMD_Decile" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicles Stage.Inputs[OLE DB Destination Input].ExternalColumns[Driver_Home_Area_Type]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Driver_Home_Area_Type" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2007,13 +1715,17 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="148,42.6666666666667"
+          Id="Package\Data Flow Task\Vehicles Stage"
+          TopLeft="287,169" />
+        <NodeLayout
           Size="157.333333333334,42.6666666666667"
           Id="Package\Data Flow Task\Vehicless Source"
           TopLeft="297,64" />
         <NodeLayout
-          Size="148,42.6666666666667"
-          Id="Package\Data Flow Task\Vehicles Stage"
-          TopLeft="287,169" />
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Data Flow Task\Vehicles Source"
+          TopLeft="46.5,64" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output]"
           TopLeft="375.666666666667,106.666666666667">
@@ -2048,10 +1760,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="153.333333333334,42.6666666666667"
-          Id="Package\Data Flow Task\Vehicles Source"
-          TopLeft="46.5,64" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
