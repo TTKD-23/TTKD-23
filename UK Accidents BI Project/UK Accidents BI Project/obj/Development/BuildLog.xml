@@ -2,43 +2,23 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>UK Accidents BI Project</Name>
-    <LastWriteTime>2021-10-23T01:28:18.0671354Z</LastWriteTime>
+    <LastWriteTime>2021-10-23T09:42:18.2478178Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Source_to_PCD_OA_Stage.dtsx</Name>
-      <LastWriteTime>2021-10-22T17:14:34.3066643Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Source_to_Vehicle_Stage.dtsx</Name>
-      <LastWriteTime>2021-10-22T17:14:34.3007031Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Main_Package.dtsx</Name>
-      <LastWriteTime>2021-10-22T16:47:39.863249Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Source_Postcodes_to_stage.dtsx</Name>
-      <LastWriteTime>2021-10-22T17:02:34.017674Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Source_to_accidents_stage.dtsx</Name>
-      <LastWriteTime>2021-10-22T17:14:34.2807367Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Source_Casualties_to_stage.dtsx</Name>
-      <LastWriteTime>2021-10-22T17:14:34.2697642Z</LastWriteTime>
+      <LastWriteTime>2021-10-23T09:38:55.742995Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DataProfiling.dtsx</Name>
-      <LastWriteTime>2021-10-23T01:28:18.0151387Z</LastWriteTime>
+      <LastWriteTime>2021-10-23T09:38:55.7400028Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>CreateDW.dtsx</Name>
+      <LastWriteTime>2021-10-23T09:42:18.195957Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
