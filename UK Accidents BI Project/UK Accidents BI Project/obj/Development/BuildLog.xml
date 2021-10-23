@@ -2,15 +2,10 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>UK Accidents BI Project</Name>
-    <LastWriteTime>2021-10-23T09:42:18.2478178Z</LastWriteTime>
+    <LastWriteTime>2021-10-23T09:50:20.652206Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
-    <ProjectBuildItemInfo>
-      <Name>Source_to_PCD_OA_Stage.dtsx</Name>
-      <LastWriteTime>2021-10-23T09:38:55.742995Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DataProfiling.dtsx</Name>
       <LastWriteTime>2021-10-23T09:38:55.7400028Z</LastWriteTime>
@@ -19,6 +14,11 @@
     <ProjectBuildItemInfo>
       <Name>CreateDW.dtsx</Name>
       <LastWriteTime>2021-10-23T09:42:18.195957Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Source_to_Stage.dtsx</Name>
+      <LastWriteTime>2021-10-23T09:50:20.6292667Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
