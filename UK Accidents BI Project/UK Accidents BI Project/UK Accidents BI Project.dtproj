@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LAPTOP-CURK33BG</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsD3ecvBbs0G3ekkrxGaQWAAAAAACAAAAAAAQZgAAAAEAACAAAACsU1haYoZRGBxTJrknLCa9QxLojWpItmgHhBspfTxm+wAAAAAOgAAAAAIAACAAAABkk7TLM6O1W6YnEmg6sy9LwerQDtve9cb3RyWl3Uv9W5AAAABoClT8xCP7AZYENmVw2DZR1MqNfBzMdluo0maq7s5EkQpxWm1hj3rKSC1Iem+qkAnsWqKjZ/FOnxdqdNn6Ek9d4YMO4PlbN/3hvjILnNAC9t5yyvFvPQgcH5vCBee2S4dLXP/s7C6TaZ0W7WjWBfXgQZYtJ+0MDMLEmQUW3z1AXigg1mbD55QUZOGnj4/sG05AAAAAUmcttrKVtoCdis60Pl5BtvHmq00WQY1n8l0HzILfawgvUf4FTA8JRPI6V/ilHU/CW9jRfw3MncX4EdOg+fAUZQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsD3ecvBbs0G3ekkrxGaQWAAAAAACAAAAAAAQZgAAAAEAACAAAAAbCudfW4LLpeVUOX2dzCvzb0b5kztY7AcMrybOAhAYjQAAAAAOgAAAAAIAACAAAABT7/uMEFlR7H4Ng2AGW30a/pcYlOhdzs54MW6k3w7AoJAAAACKmWj+9AhvJ3om6A0Tfz4JjIIRiAtRLTjpfw/GqGsiQgHnzpqA53N0k8Zdy18tQVDyyFETlLZneWwejdGOubvw4FHPQM3MdPuPj83swSh77JHoCNIPf4tpGqo08zEa3OER03sicdeEpw2YxZ+wkC9oIhxZaMqYIBL4LxTHSHVwK2kciFOVwsVN5ij3TH/uLelAAAAAzWABVLmUwZQZPP4dotctlxUgTLwberF2rp+WERu2pLOuvehdVKn+8r/8MTyy/ZQJAj8b8TzRwZOsWl70SGix5g==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -2166,16 +2166,46 @@
                 <SSIS:Property SSIS:Name="Name">DataProfiling</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">2</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{10326372-76F9-4165-93EF-CD9BF43B0E0B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{F017D975-A822-46C5-ACDA-F599A952CE82}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="CM.Data profiling.ConnectByProxy">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.Data profiling.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\Data Profiling\Data profiling</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="CM.Data Profiling.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
@@ -2321,6 +2351,36 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.Online_Retails.xlsx.ConnectByProxy">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.Online_Retails.xlsx.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\Data Profiling\Online_Retails.xlsx</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
