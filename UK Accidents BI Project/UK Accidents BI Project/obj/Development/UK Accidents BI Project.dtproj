@@ -26,13 +26,14 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LAPTOP-CURK33BG</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsD3ecvBbs0G3ekkrxGaQWAAAAAACAAAAAAAQZgAAAAEAACAAAACt8BXHDvoaR+BPKuMeKY9zKeods07V4OSCbnS9Gpa/0QAAAAAOgAAAAAIAACAAAABaxtpGB/yQpByXt2K4f6KZBNcqtaaMrD+ForukMmPYK5AAAAAsx33u8W4Jzp0GHEtaf0MzNXNUSkHke8XfzHJwUsgI/OZwKt2xrknR9aoJ90qcQTiawbsqDN0W6Z7e5QXRJi2ij5MBzGDI9MjjS16qRRaxHZeVpuEklLEdBs2CxNTpcbN8JGkuDKrxFTYGrFFqC2imU2mKbZdlEwhgA1920gA+pENcqKvIgw++0Ki5cuQqxdFAAAAA2ViVXinN/2LX+m4KXbc1O7eXG6XGzvjfD1jW3O3qXXQlUJw61FzEclJr+Bh2mgDOQn2DogDI/gjFzbQ7XPON6w==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsD3ecvBbs0G3ekkrxGaQWAAAAAACAAAAAAAQZgAAAAEAACAAAADn+iRUUgjtNdTkRbQlq+jt7BvivMlpAqx1uYJfe8LZewAAAAAOgAAAAAIAACAAAAAWSC19HuXF0C5rqVwxO80onrT+GSphyRRGV9XKboi2WZAAAAAL+N2J4xsgt7XH6x+XoDvjFdyFczFkTSvKnQMF+e5jlygsBa0qTEPxbtVapMxORMMFdhSMGATZFqjyg+fvejGp22LmbMWR24QRnkZgtWzyCvXHnwes/81I5ov/T4UNZIUUFU6ePa+uBMw15dqZjUSOstL1vMzv/gguLM/FHhs2kPryUMohuMS71i3O+QCdy2hAAAAAJ4B00nBC6LpFbH8K3DQ1SyDHYHP/Emj/EQpQpF7sVQpMV6COktJyd+qFmyNqRhzwW88jHbldKbN0bQU5Mv3ToA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="DataProfiling.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="CreateDW.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Source_to_Stage.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="stage2NDS.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
@@ -44,10 +45,10 @@
                 <SSIS:Property SSIS:Name="Name">DataProfiling</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">2</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">3</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{F017D975-A822-46C5-ACDA-F599A952CE82}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{CE6CBC62-193A-4EDB-9AFC-31AD2854EE14}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -232,6 +233,124 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.ConnectByProxy">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=TTKD_23_Stage;Integrated Security=True;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.ConnectUsingManagedIdentity">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.InitialCatalog">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TTKD_23_Stage</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.Password">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.RetainSameConnection">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.ServerName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">.</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.UserName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="CM.Online_Retails.xlsx.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
@@ -259,6 +378,36 @@
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\Data Profiling\Online_Retails.xlsx</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.profiling.ConnectByProxy">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.profiling.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\Data Profiling\profiling</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -436,10 +585,10 @@
                 <SSIS:Property SSIS:Name="Name">Source_to_Stage</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">7</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">12</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{586435C1-E929-4840-8406-FEA6C26EABB8}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D016CCD9-8F6B-4316-ABC8-2C9058BE70B8}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -594,7 +743,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.AlwaysCheckForRowDelimiters">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.AlwaysCheckForRowDelimiters">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -609,7 +758,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.CodePage">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.CodePage">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -624,7 +773,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.ColumnNamesInFirstDataRow">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.ColumnNamesInFirstDataRow">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -639,7 +788,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -654,7 +803,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -665,11 +814,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\THỰC HÀNH\Labs\2021-2022 - BI Project - UK Accidents\Data\UK Accidents Data 2011-2014\Accidents1114.csv</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\Accidents1114.csv</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.DataRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.DataRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -684,7 +833,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.Format">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.Format">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -699,7 +848,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.HeaderRowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.HeaderRowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -715,7 +864,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.HeaderRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.HeaderRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -730,7 +879,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.LocaleID">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.LocaleID">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -745,7 +894,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.RowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.RowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -756,12 +905,10 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.TextQualifier">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.TextQualifier">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -776,7 +923,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Accidents Source.Unicode">
+                <SSIS:Parameter SSIS:Name="CM.accident csv.Unicode">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -791,7 +938,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.AlwaysCheckForRowDelimiters">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.AlwaysCheckForRowDelimiters">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -806,7 +953,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.CodePage">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.CodePage">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -821,7 +968,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.ColumnNamesInFirstDataRow">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.ColumnNamesInFirstDataRow">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -836,7 +983,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -851,7 +998,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -862,11 +1009,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\THỰC HÀNH\Labs\2021-2022 - BI Project - UK Accidents\Data\UK Accidents Data 2011-2014\Casualties1114.csv</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\Casualties1114.csv</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.DataRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.DataRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -881,7 +1028,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.Format">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.Format">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -896,7 +1043,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.HeaderRowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.HeaderRowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -912,7 +1059,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.HeaderRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.HeaderRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -927,7 +1074,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.LocaleID">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.LocaleID">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -942,7 +1089,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.RowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.RowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -953,12 +1100,10 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.TextQualifier">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.TextQualifier">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -973,7 +1118,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Casualties Source.Unicode">
+                <SSIS:Parameter SSIS:Name="CM.casualty csv.Unicode">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -988,7 +1133,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_METADATA.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1003,7 +1148,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_METADATA.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1014,11 +1159,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=TTKD_23;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=TTKD_23_METADATA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23.ConnectRetryCount">
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_METADATA.ConnectRetryCount">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1033,7 +1178,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23.ConnectRetryInterval">
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_METADATA.ConnectRetryInterval">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1048,7 +1193,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23.ConnectUsingManagedIdentity">
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_METADATA.ConnectUsingManagedIdentity">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1063,7 +1208,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23.InitialCatalog">
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_METADATA.InitialCatalog">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1074,11 +1219,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">TTKD_23</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TTKD_23_METADATA</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23.Password">
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_METADATA.Password">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1092,7 +1237,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23.RetainSameConnection">
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_METADATA.RetainSameConnection">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1107,7 +1252,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23.ServerName">
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_METADATA.ServerName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1122,7 +1267,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23.UserName">
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_METADATA.UserName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1136,52 +1281,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.AlwaysCheckForRowDelimiters">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">true</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.CodePage">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">1252</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.ColumnNamesInFirstDataRow">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">true</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1196,7 +1296,200 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=TTKD_23_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.ConnectRetryCount">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.ConnectRetryInterval">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">5</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.ConnectUsingManagedIdentity">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.InitialCatalog">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TTKD_23_Stage</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.Password">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.RetainSameConnection">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.ServerName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">.</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LocalHost.TTKD_23_Stage.UserName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.AlwaysCheckForRowDelimiters">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">true</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.CodePage">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1252</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.ColumnNamesInFirstDataRow">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">true</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.ConnectByProxy">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1211,7 +1504,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.DataRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.DataRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1226,7 +1519,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.Format">
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.Format">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1241,7 +1534,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.HeaderRowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.HeaderRowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1257,7 +1550,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.HeaderRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.HeaderRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1272,7 +1565,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.LocaleID">
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.LocaleID">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1287,7 +1580,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.RowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.RowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1298,12 +1591,10 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.TextQualifier">
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.TextQualifier">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1318,7 +1609,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PCD_OA Source.Unicode">
+                <SSIS:Parameter SSIS:Name="CM.pcd_oa txt.Unicode">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1333,7 +1624,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.AlwaysCheckForRowDelimiters">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.AlwaysCheckForRowDelimiters">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1348,7 +1639,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.CodePage">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.CodePage">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1363,7 +1654,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.ColumnNamesInFirstDataRow">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.ColumnNamesInFirstDataRow">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1378,7 +1669,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1393,7 +1684,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1404,11 +1695,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\THỰC HÀNH\Labs\2021-2022 - BI Project - UK Accidents\Data\postcodes.csv</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\Labs\2021-2022 - BI Project - UK Accidents\Data\postcodes.csv</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.DataRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.DataRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1423,7 +1714,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.Format">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.Format">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1438,7 +1729,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.HeaderRowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.HeaderRowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1454,7 +1745,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.HeaderRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.HeaderRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1469,7 +1760,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.LocaleID">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.LocaleID">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1484,7 +1775,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.RowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.RowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1495,12 +1786,10 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.TextQualifier">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.TextQualifier">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1515,7 +1804,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Postcodes Source.Unicode">
+                <SSIS:Parameter SSIS:Name="CM.postcode csv.Unicode">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1530,7 +1819,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.AlwaysCheckForRowDelimiters">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.AlwaysCheckForRowDelimiters">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1545,7 +1834,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.CodePage">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.CodePage">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1560,7 +1849,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.ColumnNamesInFirstDataRow">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.ColumnNamesInFirstDataRow">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1575,7 +1864,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1590,7 +1879,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1601,11 +1890,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\THỰC HÀNH\Labs\2021-2022 - BI Project - UK Accidents\Data\UK Accidents Data 2011-2014\Vehicles1114.csv</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\Vehicles1114.csv</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.DataRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.DataRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1620,7 +1909,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.Format">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.Format">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1635,7 +1924,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.HeaderRowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.HeaderRowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1651,7 +1940,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.HeaderRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.HeaderRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1666,7 +1955,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.LocaleID">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.LocaleID">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1681,7 +1970,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.RowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.RowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1692,12 +1981,10 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.TextQualifier">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.TextQualifier">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1712,7 +1999,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.Vehicles Source.Unicode">
+                <SSIS:Parameter SSIS:Name="CM.vehicle csv.Unicode">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1728,6 +2015,23 @@
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="stage2NDS.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{B8E080B6-9451-4503-AD5E-E0103F8F383F}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">stage2NDS</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{F91CB413-4AB3-4E3B-BB8A-F8E68AC9BEF9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
             </SSIS:PackageMetaData>
           </SSIS:PackageInfo>
         </SSIS:DeploymentInfo>

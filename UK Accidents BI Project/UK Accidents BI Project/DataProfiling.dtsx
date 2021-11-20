@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DataProfiling"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{F017D975-A822-46C5-ACDA-F599A952CE82}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{CE6CBC62-193A-4EDB-9AFC-31AD2854EE14}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -49,6 +49,16 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.TTKD_23_Stage]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}"
+      DTS:ObjectName="LocalHost.TTKD_23_Stage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=TTKD_23_Stage;Integrated Security=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Online_Retails.xlsx]"
       DTS:CreationName="FILE"
       DTS:DTSID="{647372B9-A727-4A0D-AAE9-986BCF80EEFB}"
@@ -57,6 +67,17 @@
         <DTS:ConnectionManager
           DTS:FileUsageType="1"
           DTS:ConnectionString="D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\Data Profiling\Online_Retails.xlsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[profiling]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{995A0585-C558-4469-BADE-016FE9647484}"
+      DTS:ObjectName="profiling">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\Data Profiling\profiling" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -75,7 +96,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <DataProfilingTaskData
-          Destination="Data profiling">
+          Destination="profiling">
           <ProfileInput><![CDATA[<?xml version="1.0" encoding="utf-16"?>
 <DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
   <ProfileVersion>1.0</ProfileVersion>
@@ -536,6 +557,282 @@
       <CandidateKeyProfileRequest ID="KeyReq9">
         <DataSourceID>{FD55586D-743E-49C9-9567-8BE8D660EE1E}</DataSourceID>
         <Table Schema="dbo" Table="Vehicles Stage" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq10">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Accidents_Stage" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq10">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Accidents_Stage" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq10">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Accidents_Stage" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq10">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Accidents_Stage" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq10">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Accidents_Stage" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq10">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Accidents_Stage" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq11">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Casualties_Stage" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq11">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Casualties_Stage" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq11">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Casualties_Stage" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq11">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Casualties_Stage" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq11">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Casualties_Stage" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq11">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Casualties_Stage" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq12">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="ImportMultipleSheets" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq12">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="ImportMultipleSheets" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq12">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="ImportMultipleSheets" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq12">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="ImportMultipleSheets" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq12">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="ImportMultipleSheets" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq12">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="ImportMultipleSheets" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq13">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="PCD_OA_Stage" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq13">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="PCD_OA_Stage" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq13">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="PCD_OA_Stage" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq13">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="PCD_OA_Stage" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq13">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="PCD_OA_Stage" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq13">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="PCD_OA_Stage" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq14">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Postcodes_Stage" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq14">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Postcodes_Stage" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq14">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Postcodes_Stage" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq14">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Postcodes_Stage" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq14">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Postcodes_Stage" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq14">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Postcodes_Stage" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq15">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Vehicles_Stage" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq15">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Vehicles_Stage" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq15">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Vehicles_Stage" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq15">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Vehicles_Stage" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq15">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Vehicles_Stage" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq15">
+        <DataSourceID>{9DA2CDC0-D4F4-4CF7-A924-54DD6067E2E7}</DataSourceID>
+        <Table Schema="dbo" Table="Vehicles_Stage" />
         <KeyColumns>
           <Column IsWildCard="true" />
         </KeyColumns>
