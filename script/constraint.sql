@@ -1,12 +1,12 @@
-ALTER TABLE Postcodes_NDS
-ADD CONSTRAINT FK_Postcodes_NDS_Status_ID FOREIGN KEY (StatusID) REFERENCES Status_NDS(Status_ID)
-ALTER TABLE Postcodes_NDS
-ADD CONSTRAINT FK_Postcodes_NDS_Source_ID FOREIGN KEY (SourceID) REFERENCES Source_NDS(Source_ID)
+ALTER TABLE Geography_NDS
+ADD CONSTRAINT FK_Geography_NDS_Status_ID FOREIGN KEY (StatusID) REFERENCES Status_NDS(Status_ID)
+ALTER TABLE Geography_NDS
+ADD CONSTRAINT FK_Geography_NDS_Source_ID FOREIGN KEY (SourceID) REFERENCES Source_NDS(Source_ID)
 
-alter table Postcodes_NDS
-drop constraint FK_Postcodes_NDS_Status_ID
-alter table Postcodes_NDS
-drop constraint FK_Postcodes_NDS_Source_ID
+alter table Geography_NDS
+drop constraint FK_Geography_NDS_Status_ID
+alter table Geography_NDS
+drop constraint FK_Geography_NDS_Source_ID
 
 ALTER TABLE PCD_OA_NDS
 ADD CONSTRAINT FK_PCD_OA_NDS_NDS_Status_ID FOREIGN KEY (StatusID) REFERENCES Status_NDS(Status_ID)
@@ -37,7 +37,7 @@ ADD CONSTRAINT FK_Accidents_NDS_Built_up_Road_Type FOREIGN KEY (Built_up_Road_Ty
 ALTER TABLE Accidents_NDS
 ADD CONSTRAINT FK_Accidents_NDS_Period_of_day FOREIGN KEY (Period_of_Day_ID) REFERENCES Period_of_Day_NDS(Period_of_Day_ID)
 ALTER TABLE Accidents_NDS
-ADD CONSTRAINT FK_Accidents_NDS_Postcode FOREIGN KEY (Postcode_ID) REFERENCES Postcodes_NDS(Postcode_ID)
+ADD CONSTRAINT FK_Accidents_NDS_Geography FOREIGN KEY (Geography_ID) REFERENCES Geography_NDS(Geography_ID)
 
 alter table Accidents_NDS
 drop constraint FK_Accidents_NDS_Accident_Severity
@@ -58,7 +58,7 @@ drop constraint FK_Accidents_NDS_Built_up_Road_Type
 alter table Accidents_NDS
 drop constraint FK_Accidents_NDS_Period_of_day
 alter table Accidents_NDS
-drop constraint FK_Accidents_NDS_Postcode
+drop constraint FK_Accidents_NDS_Geography
 
 ALTER TABLE Vehicles_NDS
 ADD CONSTRAINT FK_Vehicles_NDS_Vehicle_Type FOREIGN KEY (Vehicle_Type) REFERENCES Vehicle_Type_NDS(Vehicle_Type_ID)

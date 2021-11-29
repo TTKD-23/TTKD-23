@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Stage2NDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{EC327988-2022-41D2-B71D-B6815F103FD2}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{FBA30309-D8DB-46AC-8F75-76844861F1B0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1044,12 +1044,6 @@ FROM         dbo.Accidents_Stage AS a</property>
                       externalMetadataColumnId="Package\Accidents Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Period_of_Day_ID]"
                       lineageId="Package\Accidents Stage To NDS\LookUp Period of Day.Outputs[Lookup Match Output].Columns[Period_of_Day_ID_NDS]" />
                     <inputColumn
-                      refId="Package\Accidents Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[Postcode_ID_NDS]"
-                      cachedDataType="i4"
-                      cachedName="Postcode_ID_NDS"
-                      externalMetadataColumnId="Package\Accidents Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Postcode_ID]"
-                      lineageId="Package\Accidents Stage To NDS\LookUp PostCode.Outputs[Lookup Match Output].Columns[Postcode_ID_NDS]" />
-                    <inputColumn
                       refId="Package\Accidents Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[Longitude]"
                       cachedDataType="i4"
                       cachedName="Longitude"
@@ -1063,6 +1057,12 @@ FROM         dbo.Accidents_Stage AS a</property>
                       cachedName="Latitude"
                       externalMetadataColumnId="Package\Accidents Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
                       lineageId="Package\Accidents Stage To NDS\Accidents Stage.Outputs[OLE DB Source Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\Accidents Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[Geography_ID_NDS]"
+                      cachedDataType="i4"
+                      cachedName="Geography_ID_NDS"
+                      externalMetadataColumnId="Package\Accidents Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Geography_ID]"
+                      lineageId="Package\Accidents Stage To NDS\LookUp PostCode.Outputs[Lookup Match Output].Columns[Geography_ID_NDS]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1189,9 +1189,9 @@ FROM         dbo.Accidents_Stage AS a</property>
                       dataType="i4"
                       name="Period_of_Day_ID" />
                     <externalMetadataColumn
-                      refId="Package\Accidents Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Postcode_ID]"
+                      refId="Package\Accidents Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Geography_ID]"
                       dataType="i4"
-                      name="Postcode_ID" />
+                      name="Geography_ID" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2360,13 +2360,13 @@ where [refTable].[code] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Postcodes_NDS]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Geography_NDS]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Postcodes_NDS]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Geography_NDS]) [refTable]
 where [refTable].[postcode] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -2398,7 +2398,7 @@ where [refTable].[postcode] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Postcode_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="postcode" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="easting" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="northing" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="latitude" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="longitude" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="county" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="country_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="country_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="iso3166-2" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="region_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="region_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StatusID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Geography_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="postcode" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="easting" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="northing" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="latitude" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="longitude" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="county" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="country_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="country_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="iso3166-2" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="region_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="region_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StatusID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -2458,17 +2458,17 @@ where [refTable].[postcode] = ?</property>
                   synchronousInputId="Package\Accidents Stage To NDS\LookUp PostCode.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Accidents Stage To NDS\LookUp PostCode.Outputs[Lookup Match Output].Columns[Postcode_ID_NDS]"
+                      refId="Package\Accidents Stage To NDS\LookUp PostCode.Outputs[Lookup Match Output].Columns[Geography_ID_NDS]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Accidents Stage To NDS\LookUp PostCode.Outputs[Lookup Match Output].Columns[Postcode_ID_NDS]"
-                      name="Postcode_ID_NDS"
+                      lineageId="Package\Accidents Stage To NDS\LookUp PostCode.Outputs[Lookup Match Output].Columns[Geography_ID_NDS]"
+                      name="Geography_ID_NDS"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Postcode_ID</property>
+                          name="CopyFromReferenceColumn">Geography_ID</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2913,7 +2913,7 @@ where [refTable].[code] = ?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update Accidents_NDS set Accident_Index = ?, Location_Easting_OSGR =?, Location_Northing_OSGR = ?, Longitude =?, Latitude =?, Accident_Severity = ?, Number_of_Vehicles =?, Number_of_Casualties =? , Date =?, Day_of_Week =?, Time =?, Local_Authority_District =?, Local_Authority_Highway =?, Road_Type =?, Speed_limit =?, Built_up_Road_Type =?, Light_Conditions=?, Weather_Conditions =?, Road_Surface_Conditions =?, Special_Conditions_at_Site =?, Urban_or_Rural_Area =? ,LSOA_of_Accident_Location =?, Postcode_ID =?, Period_of_Day_ID = ?, StatusID = ?, UpdatedDate =? where SourceID=? and Accident_ID =?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update Accidents_NDS set Accident_Index = ?, Location_Easting_OSGR =?, Location_Northing_OSGR = ?, Longitude =?, Latitude =?, Accident_Severity = ?, Number_of_Vehicles =?, Number_of_Casualties =? , Date =?, Day_of_Week =?, Time =?, Local_Authority_District =?, Local_Authority_Highway =?, Road_Type =?, Speed_limit =?, Built_up_Road_Type =?, Light_Conditions=?, Weather_Conditions =?, Road_Surface_Conditions =?, Special_Conditions_at_Site =?, Urban_or_Rural_Area =? ,LSOA_of_Accident_Location =?, Geography_ID =?, Period_of_Day_ID = ?, StatusID = ?, UpdatedDate =? where SourceID=? and Accident_ID =?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3094,12 +3094,6 @@ where [refTable].[code] = ?</property>
                       externalMetadataColumnId="Package\Accidents Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_27]"
                       lineageId="Package\Accidents Stage To NDS\Lookup Accident_Index.Outputs[Lookup Match Output].Columns[Accident_ID_NDS]" />
                     <inputColumn
-                      refId="Package\Accidents Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[Postcode_ID_NDS]"
-                      cachedDataType="i4"
-                      cachedName="Postcode_ID_NDS"
-                      externalMetadataColumnId="Package\Accidents Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_22]"
-                      lineageId="Package\Accidents Stage To NDS\LookUp PostCode.Outputs[Lookup Match Output].Columns[Postcode_ID_NDS]" />
-                    <inputColumn
                       refId="Package\Accidents Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[Longitude]"
                       cachedDataType="i4"
                       cachedName="Longitude"
@@ -3113,6 +3107,12 @@ where [refTable].[code] = ?</property>
                       cachedName="Latitude"
                       externalMetadataColumnId="Package\Accidents Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\Accidents Stage To NDS\Accidents Stage.Outputs[OLE DB Source Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\Accidents Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[Geography_ID_NDS]"
+                      cachedDataType="i4"
+                      cachedName="Geography_ID_NDS"
+                      externalMetadataColumnId="Package\Accidents Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_22]"
+                      lineageId="Package\Accidents Stage To NDS\LookUp PostCode.Outputs[Lookup Match Output].Columns[Geography_ID_NDS]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7573,13 +7573,13 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Postcodes Stage to NDS"
+      DTS:refId="Package\Postcodes Stage to Geography NDS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{94f24977-69a5-40f4-bb04-a2da8ad790b2}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Postcodes Stage to NDS"
+      DTS:ObjectName="Postcodes Stage to Geography NDS"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -7587,7 +7587,7 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
           version="1">
           <components>
             <component
-              refId="Package\Postcodes Stage to NDS\Add SourceID"
+              refId="Package\Postcodes Stage to Geography NDS\Add SourceID"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -7595,7 +7595,7 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Postcodes Stage to NDS\Add SourceID.Inputs[Derived Column Input]"
+                  refId="Package\Postcodes Stage to Geography NDS\Add SourceID.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <externalMetadataColumns />
@@ -7603,18 +7603,18 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Postcodes Stage to NDS\Add SourceID.Outputs[Derived Column Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\Add SourceID.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Postcodes Stage to NDS\Add SourceID.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Postcodes Stage to Geography NDS\Add SourceID.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]"
+                      refId="Package\Postcodes Stage to Geography NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Postcodes Stage to NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]"
                       name="SourceID"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -7635,23 +7635,23 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Postcodes Stage to NDS\Add SourceID.Outputs[Derived Column Error Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\Add SourceID.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Postcodes Stage to NDS\Add SourceID.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Postcodes Stage to Geography NDS\Add SourceID.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Postcodes Stage to Geography NDS\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Postcodes Stage to Geography NDS\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -7660,7 +7660,7 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
               </outputs>
             </component>
             <component
-              refId="Package\Postcodes Stage to NDS\false"
+              refId="Package\Postcodes Stage to Geography NDS\false"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -7668,7 +7668,7 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Postcodes Stage to NDS\false.Inputs[Derived Column Input]"
+                  refId="Package\Postcodes Stage to Geography NDS\false.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <externalMetadataColumns />
@@ -7676,18 +7676,18 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Postcodes Stage to NDS\false.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Postcodes Stage to Geography NDS\false.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Output].Columns[CreatedDate]"
+                      refId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Output].Columns[CreatedDate]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Output].Columns[CreatedDate]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Output].Columns[CreatedDate]"
                       name="CreatedDate"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -7705,11 +7705,11 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Output].Columns[UpdatedDate]"
+                      refId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Output].Columns[UpdatedDate]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Output].Columns[UpdatedDate]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Output].Columns[UpdatedDate]"
                       name="UpdatedDate"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -7727,11 +7727,11 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Output].Columns[StatusID]"
+                      refId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Output].Columns[StatusID]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Output].Columns[StatusID]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Output].Columns[StatusID]"
                       name="StatusID"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -7752,23 +7752,23 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Error Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Postcodes Stage to NDS\false.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Postcodes Stage to Geography NDS\false.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -7777,7 +7777,7 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
               </outputs>
             </component>
             <component
-              refId="Package\Postcodes Stage to NDS\Insert"
+              refId="Package\Postcodes Stage to Geography NDS\Insert"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
@@ -7792,7 +7792,7 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Postcodes_NDS]</property>
+                  name="OpenRowset">[dbo].[Geography_NDS]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -7834,7 +7834,7 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
               </properties>
               <connections>
                 <connection
-                  refId="Package\Postcodes Stage to NDS\Insert.Connections[OleDbConnection]"
+                  refId="Package\Postcodes Stage to Geography NDS\Insert.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-CURK33BG\MSBI.TTKD_23_NDS]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-CURK33BG\MSBI.TTKD_23_NDS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -7842,240 +7842,240 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
               </connections>
               <inputs>
                 <input
-                  refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input]"
+                  refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[postcode]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[postcode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="postcode"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[postcode]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[postcode]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[postcode]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[postcode]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[easting]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[easting]"
                       cachedDataType="i4"
                       cachedName="easting"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[easting]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[easting]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[easting]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[easting]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[northing]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[northing]"
                       cachedDataType="i4"
                       cachedName="northing"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[northing]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[northing]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[northing]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[northing]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[latitude]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[latitude]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="latitude"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[latitude]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[latitude]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[longitude]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[longitude]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="longitude"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[longitude]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[longitude]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[city]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[city]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="city"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[city]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[city]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[city]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[county]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[county]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="county"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[county]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[county]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[county]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[county]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[country_code]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[country_code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="country_code"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[country_code]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_code]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[country_code]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_code]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[country_name]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[country_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="country_name"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_name]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_name]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[iso3166-2]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[iso3166-2]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="iso3166-2"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[iso3166-2]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[iso3166-2]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[iso3166-2]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[iso3166-2]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[region_code]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[region_code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="region_code"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[region_code]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_code]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[region_code]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_code]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[region_name]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[region_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="region_name"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[region_name]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_name]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[region_name]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_name]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CreatedDate"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
-                      lineageId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Output].Columns[CreatedDate]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Output].Columns[CreatedDate]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[UpdatedDate]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[UpdatedDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdatedDate"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
-                      lineageId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Output].Columns[UpdatedDate]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Output].Columns[UpdatedDate]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[StatusID]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[StatusID]"
                       cachedDataType="i4"
                       cachedName="StatusID"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[StatusID]"
-                      lineageId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Output].Columns[StatusID]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[StatusID]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Output].Columns[StatusID]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].Columns[SourceID]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      lineageId="Package\Postcodes Stage to NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[postcode]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[postcode]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="postcode" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[easting]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[easting]"
                       dataType="i4"
                       name="easting" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[northing]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[northing]"
                       dataType="i4"
                       name="northing" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="latitude" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="longitude" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[city]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="city" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[county]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[county]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="county" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[country_code]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[country_code]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="country_code" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="country_name" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[iso3166-2]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[iso3166-2]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="iso3166-2" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[region_code]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[region_code]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="region_code" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[region_name]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[region_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="region_name" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       dataType="dbTimeStamp"
                       name="CreatedDate" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
                       dataType="dbTimeStamp"
                       name="UpdatedDate" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[StatusID]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[StatusID]"
                       dataType="i4"
                       name="StatusID" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
                       dataType="i4"
                       name="SourceID" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Postcode_ID]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Geography_ID]"
                       dataType="i4"
-                      name="Postcode_ID" />
+                      name="Geography_ID" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Postcodes Stage to NDS\Insert.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\Insert.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Postcodes Stage to Geography NDS\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -8084,7 +8084,7 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
               </outputs>
             </component>
             <component
-              refId="Package\Postcodes Stage to NDS\Lookup Postcode"
+              refId="Package\Postcodes Stage to Geography NDS\Lookup Postcode"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -8097,13 +8097,13 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Postcodes_NDS]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Geography_NDS]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Postcodes_NDS]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Geography_NDS]) [refTable]
 where [refTable].[postcode] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -8135,12 +8135,12 @@ where [refTable].[postcode] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Postcode_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="postcode" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="easting" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="northing" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="latitude" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="longitude" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="county" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="country_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="country_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="iso3166-2" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="region_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="region_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StatusID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Geography_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="postcode" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="easting" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="northing" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="latitude" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="longitude" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="county" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="country_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="country_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="iso3166-2" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="region_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="region_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StatusID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[postcode]};</property>
+                  name="ParameterMap">#{Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[postcode]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -8152,7 +8152,7 @@ where [refTable].[postcode] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Postcodes Stage to NDS\Lookup Postcode.Connections[OleDbConnection]"
+                  refId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-CURK33BG\MSBI.TTKD_23_NDS]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-CURK33BG\MSBI.TTKD_23_NDS]"
                   description="Connection manager used to access lookup data."
@@ -8160,16 +8160,16 @@ where [refTable].[postcode] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Postcodes Stage to NDS\Lookup Postcode.Inputs[Lookup Input]"
+                  refId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Lookup Postcode.Inputs[Lookup Input].Columns[postcode]"
+                      refId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Inputs[Lookup Input].Columns[postcode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="postcode"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[postcode]">
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[postcode]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -8187,18 +8187,18 @@ where [refTable].[postcode] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Match Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Postcodes Stage to NDS\Lookup Postcode.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Match Output].Columns[StatusID_NDS]"
+                      refId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Match Output].Columns[StatusID_NDS]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Match Output].Columns[StatusID_NDS]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Match Output].Columns[StatusID_NDS]"
                       name="StatusID_NDS"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -8209,47 +8209,47 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Match Output].Columns[Postcode_ID_NDS]"
+                      refId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Match Output].Columns[Geography_ID_NDS]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Match Output].Columns[Postcode_ID_NDS]"
-                      name="Postcode_ID_NDS"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Match Output].Columns[Geography_ID_NDS]"
+                      name="Geography_ID_NDS"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Postcode_ID</property>
+                          name="CopyFromReferenceColumn">Geography_ID</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup No Match Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Postcodes Stage to NDS\Lookup Postcode.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Error Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Postcodes Stage to NDS\Lookup Postcode.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -8258,7 +8258,7 @@ where [refTable].[postcode] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Postcodes Stage to NDS\Postcodes Stage"
+              refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
@@ -8307,7 +8307,7 @@ where [refTable].[postcode] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Postcodes Stage to NDS\Postcodes Stage.Connections[OleDbConnection]"
+                  refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LocalHost.TTKD_23_Stage]"
                   connectionManagerRefId="Package.ConnectionManagers[LocalHost.TTKD_23_Stage]"
                   description="The OLE DB runtime connection used to access the database."
@@ -8315,204 +8315,204 @@ where [refTable].[postcode] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[postcode]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[postcode]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[postcode]"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[postcode]"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[postcode]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[postcode]"
                       name="postcode"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[easting]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[easting]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[easting]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[easting]"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[easting]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[easting]"
                       name="easting"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[northing]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[northing]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[northing]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[northing]"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[northing]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[northing]"
                       name="northing"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[latitude]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[latitude]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[latitude]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[latitude]"
                       name="latitude"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[longitude]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[longitude]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[longitude]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[longitude]"
                       name="longitude"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[city]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[city]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[city]"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[city]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[city]"
                       name="city"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[county]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[county]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[county]"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[county]"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[county]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[county]"
                       name="county"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_code]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_code]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[country_code]"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[country_code]"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_code]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_code]"
                       name="country_code"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_name]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[country_name]"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[country_name]"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_name]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_name]"
                       name="country_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[iso3166-2]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[iso3166-2]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[iso3166-2]"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[iso3166-2]"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[iso3166-2]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[iso3166-2]"
                       name="iso3166-2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_code]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_code]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[region_code]"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[region_code]"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_code]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_code]"
                       name="region_code"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_name]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[region_name]"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[region_name]"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_name]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_name]"
                       name="region_name"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[postcode]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[postcode]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="postcode" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[easting]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[easting]"
                       dataType="i4"
                       name="easting" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[northing]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[northing]"
                       dataType="i4"
                       name="northing" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="latitude" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="longitude" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[city]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="city" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[county]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[county]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="county" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[country_code]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[country_code]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="country_code" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[country_name]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[country_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="country_name" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[iso3166-2]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[iso3166-2]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="iso3166-2" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[region_code]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[region_code]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="region_code" />
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[region_name]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].ExternalColumns[region_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -8520,100 +8520,100 @@ where [refTable].[postcode] = ?</property>
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[postcode]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[postcode]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[postcode]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[postcode]"
                       name="postcode" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[easting]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[easting]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[easting]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[easting]"
                       name="easting" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[northing]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[northing]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[northing]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[northing]"
                       name="northing" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[latitude]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[latitude]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[latitude]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[latitude]"
                       name="latitude" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[longitude]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[longitude]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[longitude]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[longitude]"
                       name="longitude" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[city]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[city]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[city]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[city]"
                       name="city" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[county]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[county]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[county]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[county]"
                       name="county" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[country_code]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[country_code]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[country_code]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[country_code]"
                       name="country_code" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[country_name]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[country_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[country_name]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[country_name]"
                       name="country_name" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[iso3166-2]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[iso3166-2]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[iso3166-2]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[iso3166-2]"
                       name="iso3166-2" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[region_code]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[region_code]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[region_code]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[region_code]"
                       name="region_code" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[region_name]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[region_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[region_name]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[region_name]"
                       name="region_name" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -8622,7 +8622,7 @@ where [refTable].[postcode] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Postcodes Stage to NDS\true"
+              refId="Package\Postcodes Stage to Geography NDS\true"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -8630,7 +8630,7 @@ where [refTable].[postcode] = ?</property>
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Postcodes Stage to NDS\true.Inputs[Derived Column Input]"
+                  refId="Package\Postcodes Stage to Geography NDS\true.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <externalMetadataColumns />
@@ -8638,18 +8638,18 @@ where [refTable].[postcode] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Postcodes Stage to NDS\true.Outputs[Derived Column Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\true.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Postcodes Stage to NDS\true.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Postcodes Stage to Geography NDS\true.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\true.Outputs[Derived Column Output].Columns[UpdatedDate]"
+                      refId="Package\Postcodes Stage to Geography NDS\true.Outputs[Derived Column Output].Columns[UpdatedDate]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Postcodes Stage to NDS\true.Outputs[Derived Column Output].Columns[UpdatedDate]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\true.Outputs[Derived Column Output].Columns[UpdatedDate]"
                       name="UpdatedDate"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -8670,23 +8670,23 @@ where [refTable].[postcode] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Postcodes Stage to NDS\true.Outputs[Derived Column Error Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\true.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Postcodes Stage to NDS\true.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Postcodes Stage to Geography NDS\true.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\true.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Postcodes Stage to Geography NDS\true.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\true.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\true.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\true.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Postcodes Stage to Geography NDS\true.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\true.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\true.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -8695,7 +8695,7 @@ where [refTable].[postcode] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Postcodes Stage to NDS\Update"
+              refId="Package\Postcodes Stage to Geography NDS\Update"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
@@ -8712,7 +8712,7 @@ where [refTable].[postcode] = ?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update Postcodes_NDS set postcode = ?, easting =?, northing = ?, latitude =?, longitude =?, city =?, county =?, country_code =?, country_name =?,[iso3166-2] =?, region_code =?, region_name = ?, StatusID = ?,  UpdatedDate =? where SourceID=? and Postcode_ID =?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update Geography_NDS set postcode = ?, easting =?, northing = ?, latitude =?, longitude =?, city =?, county =?, country_code =?, country_name =?,[iso3166-2] =?, region_code =?, region_name = ?, StatusID = ?,  UpdatedDate =? where SourceID=? and Geography_ID =?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -8720,7 +8720,7 @@ where [refTable].[postcode] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Postcodes Stage to NDS\Update.Connections[OleDbConnection]"
+                  refId="Package\Postcodes Stage to Geography NDS\Update.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-CURK33BG\MSBI.TTKD_23_NDS]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-CURK33BG\MSBI.TTKD_23_NDS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -8728,133 +8728,133 @@ where [refTable].[postcode] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input]"
+                  refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input]"
                   errorOrTruncationOperation="Command Execution"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[postcode]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[postcode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="postcode"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[postcode]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[postcode]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[easting]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[easting]"
                       cachedDataType="i4"
                       cachedName="easting"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[easting]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[easting]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[northing]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[northing]"
                       cachedDataType="i4"
                       cachedName="northing"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[northing]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[northing]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[latitude]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[latitude]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="latitude"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[latitude]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[latitude]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[longitude]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[longitude]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="longitude"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[longitude]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[longitude]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[city]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[city]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="city"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[city]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[city]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[county]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[county]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="county"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[county]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[county]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[country_code]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[country_code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="country_code"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_code]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_code]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[country_name]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[country_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="country_name"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_name]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[country_name]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[iso3166-2]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[iso3166-2]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="iso3166-2"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[iso3166-2]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[iso3166-2]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[region_code]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[region_code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="region_code"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_code]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_code]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[region_name]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[region_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="region_name"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
-                      lineageId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_name]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output].Columns[region_name]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[UpdatedDate]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[UpdatedDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdatedDate"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
-                      lineageId="Package\Postcodes Stage to NDS\true.Outputs[Derived Column Output].Columns[UpdatedDate]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\true.Outputs[Derived Column Output].Columns[UpdatedDate]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[SourceID]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
-                      lineageId="Package\Postcodes Stage to NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[StatusID_NDS]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[StatusID_NDS]"
                       cachedDataType="i4"
                       cachedName="StatusID_NDS"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
-                      lineageId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Match Output].Columns[StatusID_NDS]" />
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Match Output].Columns[StatusID_NDS]" />
                     <inputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].Columns[Postcode_ID_NDS]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].Columns[Geography_ID_NDS]"
                       cachedDataType="i4"
-                      cachedName="Postcode_ID_NDS"
-                      externalMetadataColumnId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
-                      lineageId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Match Output].Columns[Postcode_ID_NDS]" />
+                      cachedName="Geography_ID_NDS"
+                      externalMetadataColumnId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Match Output].Columns[Geography_ID_NDS]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -8867,7 +8867,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       dataType="i4"
                       name="Param_1">
                       <properties>
@@ -8878,7 +8878,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       dataType="i4"
                       name="Param_2">
                       <properties>
@@ -8889,7 +8889,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -8902,7 +8902,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -8915,7 +8915,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -8928,7 +8928,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -8941,7 +8941,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -8954,7 +8954,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -8967,7 +8967,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -8980,7 +8980,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -8993,7 +8993,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -9006,7 +9006,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
                       dataType="i4"
                       name="Param_12">
                       <properties>
@@ -9017,7 +9017,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
                       dataType="dbTimeStamp"
                       name="Param_13">
                       <properties>
@@ -9028,7 +9028,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
                       dataType="i4"
                       name="Param_14">
                       <properties>
@@ -9039,7 +9039,7 @@ where [refTable].[postcode] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
                       dataType="i4"
                       name="Param_15">
                       <properties>
@@ -9054,29 +9054,29 @@ where [refTable].[postcode] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Postcodes Stage to NDS\Update.Outputs[OLE DB Command Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\Update.Outputs[OLE DB Command Output]"
                   exclusionGroup="1"
                   name="OLE DB Command Output"
-                  synchronousInputId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Postcodes Stage to NDS\Update.Outputs[OLE DB Command Error Output]"
+                  refId="Package\Postcodes Stage to Geography NDS\Update.Outputs[OLE DB Command Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Postcodes Stage to NDS\Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      refId="Package\Postcodes Stage to Geography NDS\Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Postcodes Stage to NDS\Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Postcodes Stage to Geography NDS\Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -9087,35 +9087,35 @@ where [refTable].[postcode] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Postcodes Stage to NDS.Paths[Derived Column Output]"
-              endId="Package\Postcodes Stage to NDS\Lookup Postcode.Inputs[Lookup Input]"
+              refId="Package\Postcodes Stage to Geography NDS.Paths[Derived Column Output]"
+              endId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Inputs[Lookup Input]"
               name="Derived Column Output"
-              startId="Package\Postcodes Stage to NDS\Add SourceID.Outputs[Derived Column Output]" />
+              startId="Package\Postcodes Stage to Geography NDS\Add SourceID.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Postcodes Stage to NDS.Paths[Derived Column Output1]"
-              endId="Package\Postcodes Stage to NDS\Insert.Inputs[OLE DB Destination Input]"
+              refId="Package\Postcodes Stage to Geography NDS.Paths[Derived Column Output1]"
+              endId="Package\Postcodes Stage to Geography NDS\Insert.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
-              startId="Package\Postcodes Stage to NDS\false.Outputs[Derived Column Output]" />
+              startId="Package\Postcodes Stage to Geography NDS\false.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Postcodes Stage to NDS.Paths[Derived Column Output2]"
-              endId="Package\Postcodes Stage to NDS\Update.Inputs[OLE DB Command Input]"
+              refId="Package\Postcodes Stage to Geography NDS.Paths[Derived Column Output2]"
+              endId="Package\Postcodes Stage to Geography NDS\Update.Inputs[OLE DB Command Input]"
               name="Derived Column Output"
-              startId="Package\Postcodes Stage to NDS\true.Outputs[Derived Column Output]" />
+              startId="Package\Postcodes Stage to Geography NDS\true.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Postcodes Stage to NDS.Paths[Lookup Error Output]"
-              endId="Package\Postcodes Stage to NDS\false.Inputs[Derived Column Input]"
+              refId="Package\Postcodes Stage to Geography NDS.Paths[Lookup Error Output]"
+              endId="Package\Postcodes Stage to Geography NDS\false.Inputs[Derived Column Input]"
               name="Lookup Error Output"
-              startId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Error Output]" />
+              startId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Error Output]" />
             <path
-              refId="Package\Postcodes Stage to NDS.Paths[Lookup Match Output]"
-              endId="Package\Postcodes Stage to NDS\true.Inputs[Derived Column Input]"
+              refId="Package\Postcodes Stage to Geography NDS.Paths[Lookup Match Output]"
+              endId="Package\Postcodes Stage to Geography NDS\true.Inputs[Derived Column Input]"
               name="Lookup Match Output"
-              startId="Package\Postcodes Stage to NDS\Lookup Postcode.Outputs[Lookup Match Output]" />
+              startId="Package\Postcodes Stage to Geography NDS\Lookup Postcode.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Postcodes Stage to NDS.Paths[OLE DB Source Output]"
-              endId="Package\Postcodes Stage to NDS\Add SourceID.Inputs[Derived Column Input]"
+              refId="Package\Postcodes Stage to Geography NDS.Paths[OLE DB Source Output]"
+              endId="Package\Postcodes Stage to Geography NDS\Add SourceID.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
-              startId="Package\Postcodes Stage to NDS\Postcodes Stage.Outputs[OLE DB Source Output]" />
+              startId="Package\Postcodes Stage to Geography NDS\Postcodes Stage.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -11843,7 +11843,7 @@ where [refTable].[code] = ?</property>
       DTS:From="Package\get Postcodes LSET"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
-      DTS:To="Package\Postcodes Stage to NDS" />
+      DTS:To="Package\Postcodes Stage to Geography NDS" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
@@ -11856,7 +11856,7 @@ where [refTable].[code] = ?</property>
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
       DTS:DTSID="{EE6F2F20-59E9-459E-BDF2-05A511D8E6D0}"
-      DTS:From="Package\Postcodes Stage to NDS"
+      DTS:From="Package\Postcodes Stage to Geography NDS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
       DTS:To="Package\set Postcode LSET" />
@@ -11930,29 +11930,29 @@ where [refTable].[code] = ?</property>
           Id="Package\PCD_OA Stage To NDS"
           TopLeft="332.25000025355,56.2004131265526" />
         <NodeLayout
-          Size="192,41.6"
-          Id="Package\Postcodes Stage to NDS"
+          Size="246.4,41.6"
+          Id="Package\Postcodes Stage to Geography NDS"
           TopLeft="332.029760290531,138.024499446942" />
         <NodeLayout
           Size="167.2,41.6"
           Id="Package\set Accidents LSET"
-          TopLeft="558.309559659742,220.834308912577" />
+          TopLeft="604.738131878987,222.363720698732" />
         <NodeLayout
           Size="169.6,41.6"
           Id="Package\set Casualties LSET"
-          TopLeft="559.55953973438,383.716664138113" />
+          TopLeft="602.416683321376,386.010781817346" />
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\set PCD_OA LSET"
-          TopLeft="558.214293320716,57.7637201517716" />
+          TopLeft="608.928579898661,56.2343083656163" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\set Postcode LSET"
-          TopLeft="559.642864773623,136.247048680739" />
+          TopLeft="606.071436992868,135.482342787661" />
         <NodeLayout
           Size="160.8,41.6"
           Id="Package\set Vehicles LSET"
-          TopLeft="560.642876737125,307.360780320271" />
+          TopLeft="607.07144895637,308.125486213349" />
         <NodeLayout
           Size="185.6,41.6"
           Id="Package\Vehicles Stage To NDS"
@@ -11963,14 +11963,14 @@ where [refTable].[code] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="33.6190490300962,0"
+              EndConnector="33.619049030096,0"
               Start="0,0"
-              End="26.1190490300962,0">
+              End="26.119049030096,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="26.1190490300962,0" />
+                    End="26.119049030096,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12003,30 +12003,30 @@ where [refTable].[code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="641.909559659742,262.434308912577">
+          TopLeft="688.338131878987,263.963720698732">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-426.62740456559,47.70980732473"
+              EndConnector="-473.055976784835,46.1803955385747"
               Start="0,0"
-              End="-426.62740456559,40.20980732473">
+              End="-473.055976784835,38.6803955385747">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.854903662365" />
+                    End="0,19.0901977692873" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.854903662365"
-                    Point2="0,23.854903662365"
-                    Point3="-4,23.854903662365" />
+                    Point1="0,19.0901977692873"
+                    Point2="0,23.0901977692873"
+                    Point3="-4,23.0901977692873" />
                   <mssgle:LineSegment
-                    End="-422.62740456559,23.854903662365" />
+                    End="-469.055976784835,23.0901977692873" />
                   <mssgle:CubicBezierSegment
-                    Point1="-422.62740456559,23.854903662365"
-                    Point2="-426.62740456559,23.854903662365"
-                    Point3="-426.62740456559,27.854903662365" />
+                    Point1="-469.055976784835,23.0901977692873"
+                    Point2="-473.055976784835,23.0901977692873"
+                    Point3="-473.055976784835,27.0901977692873" />
                   <mssgle:LineSegment
-                    End="-426.62740456559,40.20980732473" />
+                    End="-473.055976784835,38.6803955385747" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12037,30 +12037,30 @@ where [refTable].[code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="641.042876737125,348.960780320271">
+          TopLeft="687.47144895637,349.725486213349">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-419.586915739917,35.245102055647"
+              EndConnector="-466.015487959162,34.4803961625694"
               Start="0,0"
-              End="-419.586915739917,27.745102055647">
+              End="-466.015487959162,26.9803961625694">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.6225510278235" />
+                    End="0,13.2401980812847" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.6225510278235"
-                    Point2="0,17.6225510278235"
-                    Point3="-4,17.6225510278235" />
+                    Point1="0,13.2401980812847"
+                    Point2="0,17.2401980812847"
+                    Point3="-4,17.2401980812847" />
                   <mssgle:LineSegment
-                    End="-415.586915739917,17.6225510278235" />
+                    End="-462.015487959162,17.2401980812847" />
                   <mssgle:CubicBezierSegment
-                    Point1="-415.586915739917,17.6225510278235"
-                    Point2="-419.586915739917,17.6225510278235"
-                    Point3="-419.586915739917,21.6225510278235" />
+                    Point1="-462.015487959162,17.2401980812847"
+                    Point2="-466.015487959162,17.2401980812847"
+                    Point3="-466.015487959162,21.2401980812847" />
                   <mssgle:LineSegment
-                    End="-419.586915739917,27.745102055647" />
+                    End="-466.015487959162,26.9803961625694" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12093,18 +12093,18 @@ where [refTable].[code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 14]"
-          TopLeft="524.992875467863,328.265682297773">
+          TopLeft="524.992875467863,328.648035244312">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="35.6500012692618,0"
+              EndConnector="82.0785734885073,0"
               Start="0,0"
-              End="28.1500012692618,0">
+              End="74.5785734885073,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="28.1500012692618,0" />
+                    End="74.5785734885073,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12137,30 +12137,30 @@ where [refTable].[code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="642.042864773623,177.847048680739">
+          TopLeft="688.471436992868,177.082342787661">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-425.269026766167,45.770596148873"
+              EndConnector="-471.697598985412,46.5353020419506"
               Start="0,0"
-              End="-425.269026766167,38.270596148873">
+              End="-471.697598985412,39.0353020419506">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.8852980744365" />
+                    End="0,19.2676510209753" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.8852980744365"
-                    Point2="0,22.8852980744365"
-                    Point3="-4,22.8852980744365" />
+                    Point1="0,19.2676510209753"
+                    Point2="0,23.2676510209753"
+                    Point3="-4,23.2676510209753" />
                   <mssgle:LineSegment
-                    End="-421.269026766167,22.8852980744365" />
+                    End="-467.697598985412,23.2676510209753" />
                   <mssgle:CubicBezierSegment
-                    Point1="-421.269026766167,22.8852980744365"
-                    Point2="-425.269026766167,22.8852980744365"
-                    Point3="-425.269026766167,26.8852980744365" />
+                    Point1="-467.697598985412,23.2676510209753"
+                    Point2="-471.697598985412,23.2676510209753"
+                    Point3="-471.697598985412,27.2676510209753" />
                   <mssgle:LineSegment
-                    End="-425.269026766167,38.270596148873" />
+                    End="-471.697598985412,39.0353020419506" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12175,14 +12175,14 @@ where [refTable].[code] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="31.7190457921349,0"
+              EndConnector="31.719045792135,0"
               Start="0,0"
-              End="24.2190457921349,0">
+              End="24.219045792135,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="24.2190457921349,0" />
+                    End="24.219045792135,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12193,18 +12193,18 @@ where [refTable].[code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="526.392887037552,241.089211109089">
+          TopLeft="526.392887037552,241.853917002167">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="31.9166726221898,0"
+              EndConnector="78.3452448414351,0"
               Start="0,0"
-              End="24.4166726221898,0">
+              End="70.8452448414351,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="24.4166726221898,0" />
+                    End="70.8452448414351,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12215,18 +12215,18 @@ where [refTable].[code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="524.029760290531,157.935774063841">
+          TopLeft="578.429760290531,157.553421117302">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="35.6131044830921,0"
+              EndConnector="27.6416767023374,0"
               Start="0,0"
-              End="28.1131044830921,0">
+              End="20.1416767023374,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="28.1131044830921,0" />
+                    End="20.1416767023374,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12237,18 +12237,18 @@ where [refTable].[code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="532.001199736768,404.678919067965">
+          TopLeft="532.001199736768,405.825977907581">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="27.5583399976121,0"
+              EndConnector="70.4154835846076,0"
               Start="0,0"
-              End="20.0583399976121,0">
+              End="62.9154835846076,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="20.0583399976121,0" />
+                    End="62.9154835846076,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12259,30 +12259,30 @@ where [refTable].[code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="639.014293320716,99.3637201517716">
+          TopLeft="689.728579898661,97.8343083656163">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-423.90357882232,38.1372526598459"
+              EndConnector="-474.617865400265,39.6666644460007"
               Start="0,0"
-              End="-423.90357882232,30.6372526598459">
+              End="-474.617865400265,32.1666644460007">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.0686263299229" />
+                    End="0,15.8333322230003" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.0686263299229"
-                    Point2="0,19.0686263299229"
-                    Point3="-4,19.0686263299229" />
+                    Point1="0,15.8333322230003"
+                    Point2="0,19.8333322230003"
+                    Point3="-4,19.8333322230003" />
                   <mssgle:LineSegment
-                    End="-419.90357882232,19.0686263299229" />
+                    End="-470.617865400265,19.8333322230003" />
                   <mssgle:CubicBezierSegment
-                    Point1="-419.90357882232,19.0686263299229"
-                    Point2="-423.90357882232,19.0686263299229"
-                    Point3="-423.90357882232,23.0686263299229" />
+                    Point1="-470.617865400265,19.8333322230003"
+                    Point2="-474.617865400265,19.8333322230003"
+                    Point3="-474.617865400265,23.8333322230003" />
                   <mssgle:LineSegment
-                    End="-423.90357882232,30.6372526598459" />
+                    End="-474.617865400265,32.1666644460007" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12293,18 +12293,18 @@ where [refTable].[code] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="518.65000025355,77.7820666391621">
+          TopLeft="518.65000025355,77.0173607460844">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="39.5642930671664,0"
+              EndConnector="90.2785796451108,0"
               Start="0,0"
-              End="32.0642930671664,0">
+              End="82.7785796451108,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="32.0642930671664,0" />
+                    End="82.7785796451108,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12322,13 +12322,13 @@ where [refTable].[code] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Accidents Stage To NDS\Insert"
-          TopLeft="641.054031679091,903.730950340918" />
+          Size="98.4,42.4"
+          Id="Package\Accidents Stage To NDS\true"
+          TopLeft="318.845692658038,797.8966349104" />
         <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Accidents Stage To NDS\LookUp Road Type"
-          TopLeft="441.269848784622,381.72157424375" />
+          Size="160.8,41.6"
+          Id="Package\Accidents Stage To NDS\LookUp PostCode"
+          TopLeft="695.317472158647,27.5777784273437" />
         <NodeLayout
           Size="223.2,41.6"
           Id="Package\Accidents Stage To NDS\LookUp Local Authority District"
@@ -12342,6 +12342,30 @@ where [refTable].[code] = ?</property>
           Id="Package\Accidents Stage To NDS\false"
           TopLeft="640.078287610357,796.67385939793" />
         <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Accidents Stage To NDS\LookUp Road Type"
+          TopLeft="441.269848784622,381.72157424375" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Accidents Stage To NDS\LookUp PCD OA"
+          TopLeft="425.714292964157,25.8352942892424" />
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\Accidents Stage To NDS\LookUp Build up Road Type"
+          TopLeft="420.192914201875,567.154474701344" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\Accidents Stage To NDS\Update"
+          TopLeft="314.934984327657,901.872126768608" />
+        <NodeLayout
+          Size="239.2,41.6"
+          Id="Package\Accidents Stage To NDS\Add SourceID, Built up Road Type"
+          TopLeft="105.412689008579,27.8300653570938" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Accidents Stage To NDS\LookUp Accident Severity"
+          TopLeft="426.507943771323,116.198694702898" />
+        <NodeLayout
           Size="210.4,41.6"
           Id="Package\Accidents Stage To NDS\LookUp Urban or Rural Area"
           TopLeft="419.047626183958,477.734647485722" />
@@ -12350,37 +12374,17 @@ where [refTable].[code] = ?</property>
           Id="Package\Accidents Stage To NDS\LookUp Period of Day"
           TopLeft="435.192914457323,655.095651311353" />
         <NodeLayout
-          Size="208.8,41.6"
-          Id="Package\Accidents Stage To NDS\LookUp Build up Road Type"
-          TopLeft="420.192914201875,567.154474701344" />
-        <NodeLayout
-          Size="112,41.6"
-          Id="Package\Accidents Stage To NDS\Update"
-          TopLeft="314.101650994324,901.872126768608" />
-        <NodeLayout
-          Size="239.2,41.6"
-          Id="Package\Accidents Stage To NDS\Add SourceID, Built up Road Type"
-          TopLeft="105.412689008579,27.8300653570938" />
-        <NodeLayout
-          Size="98.4,42.4"
-          Id="Package\Accidents Stage To NDS\true"
-          TopLeft="318.845692658038,797.8966349104" />
-        <NodeLayout
-          Size="160.8,41.6"
-          Id="Package\Accidents Stage To NDS\LookUp PostCode"
-          TopLeft="695.317472158647,27.5777784273437" />
-        <NodeLayout
           Size="180.8,41.6"
           Id="Package\Accidents Stage To NDS\LookUp Date of Week"
           TopLeft="434.742067503002,204.342807748163" />
         <NodeLayout
-          Size="197.6,41.6"
-          Id="Package\Accidents Stage To NDS\LookUp Accident Severity"
-          TopLeft="426.507943771323,116.198694702898" />
-        <NodeLayout
           Size="152.8,41.6"
           Id="Package\Accidents Stage To NDS\Accidents Stage"
           TopLeft="144.662697483615,116.436602539322" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Accidents Stage To NDS\Insert"
+          TopLeft="641.054031679091,903.730950340918" />
         <EdgeLayout
           Id="Package\Accidents Stage To NDS.Paths[OLE DB Source Output]"
           TopLeft="223.037693246097,116.436602539322">
@@ -12401,6 +12405,30 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Accidents Stage To NDS.Paths[Lookup Match Output9]"
+          TopLeft="579.314292964157,47.506536358293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="116.00317919449,0"
+              Start="0,0"
+              End="108.50317919449,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="108.50317919449,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="6.06020287849501,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12668,19 +12696,41 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Accidents Stage To NDS.Paths[Derived Column Output1]"
-          TopLeft="369.073671826181,840.2966349104">
+          Id="Package\Accidents Stage To NDS.Paths[Derived Column Output2]"
+          TopLeft="344.612689008579,47.6326798231681">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61.5754918582086"
+              EndConnector="81.1016039555779,0"
               Start="0,0"
-              End="0,54.0754918582086">
+              End="73.6016039555779,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.0754918582086" />
+                    End="73.6016039555779,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Accidents Stage To NDS.Paths[Derived Column Output1]"
+          TopLeft="369.490338492848,840.2966349104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.575491858208"
+              Start="0,0"
+              End="0,54.075491858208">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.075491858208" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12711,89 +12761,26 @@ where [refTable].[code] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\Accidents Stage To NDS\LookUp PCD OA"
-          TopLeft="425.714292964157,25.8352942892424" />
-        <EdgeLayout
-          Id="Package\Accidents Stage To NDS.Paths[Lookup Match Output9]"
-          TopLeft="579.314292964157,47.5065363582931">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="116.00317919449,0"
-              Start="0,0"
-              End="108.50317919449,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="108.50317919449,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="6.06020287849507,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Accidents Stage To NDS.Paths[Derived Column Output2]"
-          TopLeft="344.612689008579,47.6326798231681">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="81.1016039555779,0"
-              Start="0,0"
-              End="73.6016039555779,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="73.6016039555779,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Accidents Stage To NDS\Insert">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Accidents Stage To NDS\LookUp Road Type">
+    design-time-name="Package\Accidents Stage To NDS\LookUp PostCode">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[Road_Type_NDS]</Value>
+          type="q3:string">[dbo].[Geography_NDS]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -12835,6 +12822,98 @@ where [refTable].[code] = ?</property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[Accidents_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Accidents Stage To NDS\LookUp Road Type">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Road_Type_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Accidents Stage To NDS\LookUp PCD OA">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Mapping_Accident_Postcode_Stage]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">1</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Accidents Stage To NDS\LookUp Build up Road Type">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Built_up_Road_Type_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Accidents Stage To NDS\LookUp Accident Severity">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Severity_NDS]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -12893,52 +12972,6 @@ where [refTable].[code] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Accidents Stage To NDS\LookUp Build up Road Type">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Built_up_Road_Type_NDS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Accidents Stage To NDS\LookUp PostCode">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Postcodes_NDS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Accidents Stage To NDS\LookUp Date of Week">
     <Properties>
       <Property>
@@ -12962,29 +12995,6 @@ where [refTable].[code] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Accidents Stage To NDS\LookUp Accident Severity">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Severity_NDS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Accidents Stage To NDS\Accidents Stage">
     <Properties>
       <Property>
@@ -12994,6 +13004,19 @@ where [refTable].[code] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Accidents Stage To NDS\Insert">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -13794,40 +13817,40 @@ where [refTable].[code] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Postcodes Stage to NDS">
+    design-time-name="Package\Postcodes Stage to Geography NDS">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="101.6,42.4"
-          Id="Package\Postcodes Stage to NDS\false"
+          Id="Package\Postcodes Stage to Geography NDS\false"
           TopLeft="549.089276887818,288.047197641129" />
         <NodeLayout
           Size="112,41.6"
-          Id="Package\Postcodes Stage to NDS\Update"
+          Id="Package\Postcodes Stage to Geography NDS\Update"
           TopLeft="167.142857142857,383" />
         <NodeLayout
           Size="106.4,42.4"
-          Id="Package\Postcodes Stage to NDS\Insert"
+          Id="Package\Postcodes Stage to Geography NDS\Insert"
           TopLeft="548.571428571429,386.428571428571" />
         <NodeLayout
           Size="158.4,41.6"
-          Id="Package\Postcodes Stage to NDS\Lookup Postcode"
+          Id="Package\Postcodes Stage to Geography NDS\Lookup Postcode"
           TopLeft="323.571433887191,168.431934864428" />
         <NodeLayout
           Size="98.4,42.4"
-          Id="Package\Postcodes Stage to NDS\true"
+          Id="Package\Postcodes Stage to Geography NDS\true"
           TopLeft="169.065472475259,289.148878336698" />
         <NodeLayout
           Size="143.2,41.6"
-          Id="Package\Postcodes Stage to NDS\Add SourceID"
+          Id="Package\Postcodes Stage to Geography NDS\Add SourceID"
           TopLeft="330.035711138604,61.2543417724616" />
         <NodeLayout
           Size="155.2,41.6"
-          Id="Package\Postcodes Stage to NDS\Postcodes Stage"
+          Id="Package\Postcodes Stage to Geography NDS\Postcodes Stage"
           TopLeft="60,60" />
         <EdgeLayout
-          Id="Package\Postcodes Stage to NDS.Paths[OLE DB Source Output]"
+          Id="Package\Postcodes Stage to Geography NDS.Paths[OLE DB Source Output]"
           TopLeft="215.2,81.4271708862308">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13849,7 +13872,7 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Postcodes Stage to NDS.Paths[Lookup Match Output]"
+          Id="Package\Postcodes Stage to Geography NDS.Paths[Lookup Match Output]"
           TopLeft="377.704767220524,210.031934864428">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13885,7 +13908,7 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Postcodes Stage to NDS.Paths[Lookup Error Output]"
+          Id="Package\Postcodes Stage to Geography NDS.Paths[Lookup Error Output]"
           TopLeft="427.838100553858,210.031934864428">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13921,7 +13944,7 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Postcodes Stage to NDS.Paths[Derived Column Output2]"
+          Id="Package\Postcodes Stage to Geography NDS.Paths[Derived Column Output2]"
           TopLeft="220.704164809058,331.548878336698">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13943,7 +13966,7 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Postcodes Stage to NDS.Paths[Derived Column Output1]"
+          Id="Package\Postcodes Stage to Geography NDS.Paths[Derived Column Output1]"
           TopLeft="600.830352729623,330.447197641129">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13965,7 +13988,7 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Postcodes Stage to NDS.Paths[Derived Column Output]"
+          Id="Package\Postcodes Stage to Geography NDS.Paths[Derived Column Output]"
           TopLeft="402.203572512897,102.854341772462">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13990,7 +14013,7 @@ where [refTable].[code] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Postcodes Stage to NDS\Insert">
+    design-time-name="Package\Postcodes Stage to Geography NDS\Insert">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -14003,22 +14026,22 @@ where [refTable].[code] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Postcodes Stage to NDS\Lookup Postcode">
+    design-time-name="Package\Postcodes Stage to Geography NDS\Lookup Postcode">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[Postcodes_NDS]</Value>
+          type="q3:string">[dbo].[Geography_NDS]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -14026,7 +14049,7 @@ where [refTable].[code] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Postcodes Stage to NDS\Postcodes Stage">
+    design-time-name="Package\Postcodes Stage to Geography NDS\Postcodes Stage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -14444,7 +14467,7 @@ where [refTable].[code] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -14454,7 +14477,7 @@ where [refTable].[code] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -14583,29 +14606,6 @@ where [refTable].[code] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Accidents Stage To NDS\LookUp PCD OA">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Mapping_Accident_Postcode_Stage]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">1</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
