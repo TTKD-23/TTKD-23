@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Stage2NDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{FBA30309-D8DB-46AC-8F75-76844861F1B0}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{7BCB77BA-CFCF-44AC-B4FE-10A61BBD6EFD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -63,6 +63,7 @@
       DTS:refId="Package\Accidents Stage To NDS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{55b101d5-7b9b-42b0-9589-f6e20023b14d}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -4227,6 +4228,12 @@ where [refTable].[code] = ?</property>
                       cachedName="Sex_of_Person_ID_NDS"
                       externalMetadataColumnId="Package\Casualties Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Sex_of_Casualty]"
                       lineageId="Package\Casualties Stage To NDS\LookUp Sex of Casualty.Outputs[Lookup Match Output].Columns[Sex_of_Person_ID_NDS]" />
+                    <inputColumn
+                      refId="Package\Casualties Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[Accident_ID_NDS]"
+                      cachedDataType="i4"
+                      cachedName="Accident_ID_NDS"
+                      externalMetadataColumnId="Package\Casualties Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Accident_ID]"
+                      lineageId="Package\Casualties Stage To NDS\Lookup Accident Index, Vehicle Reference.Outputs[Lookup Match Output].Columns[Accident_ID_NDS]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4300,6 +4307,10 @@ where [refTable].[code] = ?</property>
                       refId="Package\Casualties Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Casualty_ID]"
                       dataType="i4"
                       name="Casualty_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Casualties Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[Accident_ID]"
+                      dataType="i4"
+                      name="Accident_ID" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4467,6 +4478,20 @@ where [refTable].[Accident_Index] = ? and [refTable].[Vehicle_Reference] = ?</pr
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
                           name="CopyFromReferenceColumn">Vehicle_ID</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Casualties Stage To NDS\Lookup Accident Index, Vehicle Reference.Outputs[Lookup Match Output].Columns[Accident_ID_NDS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Casualties Stage To NDS\Lookup Accident Index, Vehicle Reference.Outputs[Lookup Match Output].Columns[Accident_ID_NDS]"
+                      name="Accident_ID_NDS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Accident_ID</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -5591,7 +5616,7 @@ where [refTable].[code] = ?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update Casualties_NDS set Accident_Index = ?, Vehicle_Reference =?, Casualty_Reference = ?, Casualty_Class =?,Sex_of_Casualty =?, Age_of_Casualty =? , Age_Band_of_Casualty =?, Casualty_Severity =?, Casualty_Type =?,Casualty_Home_Area_Type =?, Age_ID = ?, Vehicle_ID = ?, StatusID = ?, UpdatedDate =? where SourceID=? and Casualty_ID =?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update Casualties_NDS set Accident_Index = ?, Vehicle_Reference =?, Casualty_Reference = ?, Casualty_Class =?,Sex_of_Casualty =?, Age_of_Casualty =? , Age_Band_of_Casualty =?, Casualty_Severity =?, Casualty_Type =?,Casualty_Home_Area_Type =?, Age_ID = ?, Vehicle_ID = ?, Accident_ID = ?, StatusID = ?, UpdatedDate =? where SourceID=? and Casualty_ID =?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -5670,30 +5695,6 @@ where [refTable].[code] = ?</property>
                       externalMetadataColumnId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
                       lineageId="Package\Casualties Stage To NDS\LookUp Casualty Type.Outputs[Lookup Match Output].Columns[Casualty_Type_ID_NDS]" />
                     <inputColumn
-                      refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[SourceID]"
-                      cachedDataType="i4"
-                      cachedName="SourceID"
-                      externalMetadataColumnId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
-                      lineageId="Package\Casualties Stage To NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
-                    <inputColumn
-                      refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[Casualty_ID_NDS]"
-                      cachedDataType="i4"
-                      cachedName="Casualty_ID_NDS"
-                      externalMetadataColumnId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
-                      lineageId="Package\Casualties Stage To NDS\Lookup Accident Index, Vehicle Reference, Casualty Reference.Outputs[Lookup Match Output].Columns[Casualty_ID_NDS]" />
-                    <inputColumn
-                      refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[StatusID_NDS]"
-                      cachedDataType="i4"
-                      cachedName="StatusID_NDS"
-                      externalMetadataColumnId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
-                      lineageId="Package\Casualties Stage To NDS\Lookup Accident Index, Vehicle Reference, Casualty Reference.Outputs[Lookup Match Output].Columns[StatusID_NDS]" />
-                    <inputColumn
-                      refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[UpdatedDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="UpdatedDate"
-                      externalMetadataColumnId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
-                      lineageId="Package\Casualties Stage To NDS\true.Outputs[Derived Column Output].Columns[UpdatedDate]" />
-                    <inputColumn
                       refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[Age_ID_NDS]"
                       cachedDataType="i4"
                       cachedName="Age_ID_NDS"
@@ -5711,6 +5712,36 @@ where [refTable].[code] = ?</property>
                       cachedName="Sex_of_Person_ID_NDS"
                       externalMetadataColumnId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\Casualties Stage To NDS\LookUp Sex of Casualty.Outputs[Lookup Match Output].Columns[Sex_of_Person_ID_NDS]" />
+                    <inputColumn
+                      refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[Accident_ID_NDS]"
+                      cachedDataType="i4"
+                      cachedName="Accident_ID_NDS"
+                      externalMetadataColumnId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\Casualties Stage To NDS\Lookup Accident Index, Vehicle Reference.Outputs[Lookup Match Output].Columns[Accident_ID_NDS]" />
+                    <inputColumn
+                      refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[StatusID_NDS]"
+                      cachedDataType="i4"
+                      cachedName="StatusID_NDS"
+                      externalMetadataColumnId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\Casualties Stage To NDS\Lookup Accident Index, Vehicle Reference, Casualty Reference.Outputs[Lookup Match Output].Columns[StatusID_NDS]" />
+                    <inputColumn
+                      refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[UpdatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdatedDate"
+                      externalMetadataColumnId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      lineageId="Package\Casualties Stage To NDS\true.Outputs[Derived Column Output].Columns[UpdatedDate]" />
+                    <inputColumn
+                      refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      externalMetadataColumnId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      lineageId="Package\Casualties Stage To NDS\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[Casualty_ID_NDS]"
+                      cachedDataType="i4"
+                      cachedName="Casualty_ID_NDS"
+                      externalMetadataColumnId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      lineageId="Package\Casualties Stage To NDS\Lookup Accident Index, Vehicle Reference, Casualty Reference.Outputs[Lookup Match Output].Columns[Casualty_ID_NDS]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5861,7 +5892,7 @@ where [refTable].[code] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
-                      dataType="dbTimeStamp"
+                      dataType="i4"
                       name="Param_13">
                       <properties>
                         <property
@@ -5872,7 +5903,7 @@ where [refTable].[code] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
-                      dataType="i4"
+                      dataType="dbTimeStamp"
                       name="Param_14">
                       <properties>
                         <property
@@ -5885,6 +5916,17 @@ where [refTable].[code] = ?</property>
                       refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
                       dataType="i4"
                       name="Param_15">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Casualties Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      dataType="i4"
+                      name="Param_16">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -5997,6 +6039,7 @@ where [refTable].[code] = ?</property>
       DTS:refId="Package\get Accidents LSET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{ce83baff-1070-400e-9f5e-5c8590c3d02e}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -6031,6 +6074,7 @@ where [refTable].[code] = ?</property>
       DTS:refId="Package\get PCD_OA LSET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{8b590374-6944-4f81-9d82-a2ab1b49cf1e}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -6048,6 +6092,7 @@ where [refTable].[code] = ?</property>
       DTS:refId="Package\get Postcodes LSET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{fd76f49f-7b27-45b6-8c7e-f8ac1a0099ab}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -6065,6 +6110,7 @@ where [refTable].[code] = ?</property>
       DTS:refId="Package\get Vehicles LSET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{84e20308-f09f-437a-9361-720354e71208}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -6082,6 +6128,7 @@ where [refTable].[code] = ?</property>
       DTS:refId="Package\PCD_OA Stage To NDS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{097c8735-62b6-408f-b9f6-f3b5dd3ae4fa}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -7576,6 +7623,7 @@ where [refTable].[pcd7] = ? and [refTable].[pcd8] = ? and [refTable].[pcds] = ?<
       DTS:refId="Package\Postcodes Stage to Geography NDS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{94f24977-69a5-40f4-bb04-a2da8ad790b2}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -9124,6 +9172,7 @@ where [refTable].[postcode] = ?</property>
       DTS:refId="Package\set Accidents LSET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{7444c4f7-32a9-4603-bddc-dee3ab5b4569}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -9158,6 +9207,7 @@ where [refTable].[postcode] = ?</property>
       DTS:refId="Package\set PCD_OA LSET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{277eb663-1ab8-41b9-ad14-d147ef74203d}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -9175,6 +9225,7 @@ where [refTable].[postcode] = ?</property>
       DTS:refId="Package\set Postcode LSET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{d2a38d94-822c-4d65-be7b-21285321cc83}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -9192,6 +9243,7 @@ where [refTable].[postcode] = ?</property>
       DTS:refId="Package\set Vehicles LSET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{6e2fad6b-cc7b-4b4f-9dec-804859876283}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -9209,6 +9261,7 @@ where [refTable].[postcode] = ?</property>
       DTS:refId="Package\Vehicles Stage To NDS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{2772dee3-8dd5-4dd4-890b-952f6e67f542}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -12770,7 +12823,7 @@ where [refTable].[code] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -12780,7 +12833,7 @@ where [refTable].[code] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -13105,14 +13158,14 @@ where [refTable].[code] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54.374792007286"
+              EndConnector="0,54.3747920072859"
               Start="0,0"
-              End="0,46.874792007286">
+              End="0,46.8747920072859">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.874792007286" />
+                    End="0,46.8747920072859" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13129,21 +13182,21 @@ where [refTable].[code] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.1142857142856"
+              EndConnector="0,49.114285714285"
               Start="0,0"
-              End="0,41.6142857142856">
+              End="0,41.614285714285">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.6142857142856" />
+                    End="0,41.614285714285" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,15.0024553571428,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,15.0024553571425,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -13459,7 +13512,7 @@ where [refTable].[code] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -13469,7 +13522,7 @@ where [refTable].[code] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -14031,7 +14084,7 @@ where [refTable].[code] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -14041,7 +14094,7 @@ where [refTable].[code] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

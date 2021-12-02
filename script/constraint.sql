@@ -109,6 +109,8 @@ ADD CONSTRAINT FK_Casualties_NDS_Source_ID FOREIGN KEY (SourceID) REFERENCES Sou
 ALTER TABLE Casualties_NDS
 ADD CONSTRAINT FK_Casualties_NDS_Vehicle FOREIGN KEY (Vehicle_ID) REFERENCES Vehicles_NDS(Vehicle_ID)
 ALTER TABLE Casualties_NDS
+ADD CONSTRAINT FK_Casualties_NDS_Accident FOREIGN KEY (Accident_ID) REFERENCES Accidents_NDS(Accident_ID)
+ALTER TABLE Casualties_NDS
 ADD CONSTRAINT FK_Casualties_NDS_Age FOREIGN KEY (Age_ID) REFERENCES Age_NDS(Age_ID)
 
 alter table Casualties_NDS
@@ -127,4 +129,6 @@ alter table Casualties_NDS
 drop constraint FK_Casualties_NDS_Vehicle
 alter table Casualties_NDS
 drop constraint FK_Casualties_NDS_Age
+alter table Casualties_NDS
+drop constraint FK_Casualties_NDS_Accidents
 
