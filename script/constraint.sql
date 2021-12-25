@@ -1,3 +1,4 @@
+--NDS
 ALTER TABLE Geography_NDS
 ADD CONSTRAINT FK_Geography_NDS_Status_ID FOREIGN KEY (StatusID) REFERENCES Status_NDS(Status_ID)
 ALTER TABLE Geography_NDS
@@ -7,16 +8,6 @@ alter table Geography_NDS
 drop constraint FK_Geography_NDS_Status_ID
 alter table Geography_NDS
 drop constraint FK_Geography_NDS_Source_ID
-
-ALTER TABLE PCD_OA_NDS
-ADD CONSTRAINT FK_PCD_OA_NDS_NDS_Status_ID FOREIGN KEY (StatusID) REFERENCES Status_NDS(Status_ID)
-ALTER TABLE PCD_OA_NDS
-ADD CONSTRAINT FK_PCD_OA_NDS_NDS_Source_ID FOREIGN KEY (SourceID) REFERENCES Source_NDS(Source_ID)
-
-alter table PCD_OA_NDS
-drop constraint FK_PCD_OA_NDS_NDS_Status_ID
-alter table PCD_OA_NDS
-drop constraint FK_PCD_OA_NDS_NDS_Source_ID
 
 ALTER TABLE Accidents_NDS
 ADD CONSTRAINT FK_Accidents_NDS_Accident_Severity FOREIGN KEY (Accident_Severity) REFERENCES Severity_NDS(Severity_ID)
@@ -35,9 +26,19 @@ ADD CONSTRAINT FK_Accidents_NDS_Day_of_week FOREIGN KEY (Day_of_Week) REFERENCES
 ALTER TABLE Accidents_NDS
 ADD CONSTRAINT FK_Accidents_NDS_Built_up_Road_Type FOREIGN KEY (Built_up_Road_Type) REFERENCES Built_up_Road_Type_NDS(Built_up_Road_Type_ID)
 ALTER TABLE Accidents_NDS
-ADD CONSTRAINT FK_Accidents_NDS_Period_of_day FOREIGN KEY (Period_of_Day_ID) REFERENCES Period_of_Day_NDS(Period_of_Day_ID)
+ADD CONSTRAINT FK_Accidents_NDS_Session_in_day FOREIGN KEY (Session_in_Day) REFERENCES Session_in_Day_NDS(Session_in_Day_ID)
 ALTER TABLE Accidents_NDS
 ADD CONSTRAINT FK_Accidents_NDS_Geography FOREIGN KEY (Geography_ID) REFERENCES Geography_NDS(Geography_ID)
+ALTER TABLE Accidents_NDS
+ADD CONSTRAINT FK_Accidents_NDS_Light_Condition FOREIGN KEY (Light_Condition) REFERENCES Light_Condition_NDS(Light_Condition_ID)
+ALTER TABLE Accidents_NDS
+ADD CONSTRAINT FK_Accidents_NDS_Carriageway_Hazard FOREIGN KEY (Carriageway_Hazard) REFERENCES Carriageway_Hazard_NDS(Carriageway_Hazard_ID)
+ALTER TABLE Accidents_NDS
+ADD CONSTRAINT FK_Accidents_NDS_Road_Surface_Condition FOREIGN KEY (Road_Surface_Condition) REFERENCES Road_Surface_Condition_NDS(Road_Surface_Condition_ID)
+ALTER TABLE Accidents_NDS
+ADD CONSTRAINT FK_Accidents_NDS_Special_Condition_at_Site FOREIGN KEY (Special_Condition_at_Site) REFERENCES Special_Condition_at_Site_NDS(Special_Condition_at_Site_ID)
+ALTER TABLE Accidents_NDS
+ADD CONSTRAINT FK_Accidents_NDS_Weather_Condition FOREIGN KEY (Weather_Condition) REFERENCES Weather_Condition_NDS(Weather_Condition_ID)
 
 alter table Accidents_NDS
 drop constraint FK_Accidents_NDS_Accident_Severity
@@ -56,9 +57,19 @@ drop constraint FK_Accidents_NDS_Day_of_week
 alter table Accidents_NDS
 drop constraint FK_Accidents_NDS_Built_up_Road_Type
 alter table Accidents_NDS
-drop constraint FK_Accidents_NDS_Period_of_day
+drop constraint FK_Accidents_NDS_Session_in_day
 alter table Accidents_NDS
 drop constraint FK_Accidents_NDS_Geography
+alter table Accidents_NDS
+drop constraint FK_Accidents_NDS_Carriageway_Hazard
+alter table Accidents_NDS
+drop constraint FK_Accidents_NDS_Road_Surface_Condition
+alter table Accidents_NDS
+drop constraint FK_Accidents_NDS_Special_Condition_at_Site
+alter table Accidents_NDS
+drop constraint FK_Accidents_NDS_Weather_Condition
+alter table Accidents_NDS
+drop constraint FK_Accidents_NDS_Light_Condition
 
 ALTER TABLE Vehicles_NDS
 ADD CONSTRAINT FK_Vehicles_NDS_Vehicle_Type FOREIGN KEY (Vehicle_Type) REFERENCES Vehicle_Type_NDS(Vehicle_Type_ID)
@@ -75,7 +86,7 @@ ADD CONSTRAINT FK_Vehicles_NDS_Source_ID FOREIGN KEY (SourceID) REFERENCES Sourc
 ALTER TABLE Vehicles_NDS
 ADD CONSTRAINT FK_Vehicles_NDS_Accident FOREIGN KEY (Accident_ID) REFERENCES Accidents_NDS(Accident_ID)
 ALTER TABLE Vehicles_NDS
-ADD CONSTRAINT FK_Vehicles_NDS_Age FOREIGN KEY (Age_ID) REFERENCES Age_NDS(Age_ID)
+ADD CONSTRAINT FK_Vehicles_NDS_Age_Group FOREIGN KEY (Age_Group) REFERENCES Age_Group_NDS(Age_Group_ID)
 
 alter table Vehicles_NDS
 drop constraint FK_Vehicles_NDS_Vehicle_Type
@@ -92,7 +103,7 @@ drop constraint FK_Vehicles_NDS_Source_ID
 alter table Vehicles_NDS
 drop constraint FK_Vehicles_NDS_Accident
 alter table Vehicles_NDS
-drop constraint FK_Vehicles_NDS_Age
+drop constraint FK_Vehicles_NDS_Age_Group
 
 ALTER TABLE Casualties_NDS
 ADD CONSTRAINT FK_Casualties_NDS_Sex_of_Casualty FOREIGN KEY (Sex_of_Casualty) REFERENCES Sex_of_Person_NDS(Sex_of_Person_ID)
@@ -111,7 +122,9 @@ ADD CONSTRAINT FK_Casualties_NDS_Vehicle FOREIGN KEY (Vehicle_ID) REFERENCES Veh
 ALTER TABLE Casualties_NDS
 ADD CONSTRAINT FK_Casualties_NDS_Accident FOREIGN KEY (Accident_ID) REFERENCES Accidents_NDS(Accident_ID)
 ALTER TABLE Casualties_NDS
-ADD CONSTRAINT FK_Casualties_NDS_Age FOREIGN KEY (Age_ID) REFERENCES Age_NDS(Age_ID)
+ADD CONSTRAINT FK_Casualties_NDS_Age_Group FOREIGN KEY (Age_Group) REFERENCES Age_Group_NDS(Age_Group_ID)
+ALTER TABLE Casualties_NDS
+ADD CONSTRAINT FK_Casualties_NDS_Casualty_Class FOREIGN KEY (Casualty_Class) REFERENCES Casualty_Class_NDS(Casualty_Class_ID)
 
 alter table Casualties_NDS
 drop constraint FK_Casualties_NDS_Sex_of_Casualty
@@ -128,7 +141,139 @@ drop constraint FK_Casualties_NDS_Source_ID
 alter table Casualties_NDS
 drop constraint FK_Casualties_NDS_Vehicle
 alter table Casualties_NDS
-drop constraint FK_Casualties_NDS_Age
+drop constraint FK_Casualties_NDS_Age_Group
 alter table Casualties_NDS
-drop constraint FK_Casualties_NDS_Accidents
+drop constraint FK_Casualties_NDS_Accident
+alter table Casualties_NDS
+drop constraint FK_Casualties_NDS_Casualty_Class
 
+--DDS
+ALTER TABLE Dim_Accident
+ADD CONSTRAINT FK_Accident_DDS_Severity FOREIGN KEY (Accident_Severity) REFERENCES Dim_Severity(Severity_ID)
+ALTER TABLE Dim_Accident
+ADD CONSTRAINT FK_Accident_DDS_Local_Authority_District FOREIGN KEY (Local_Authority_District) REFERENCES Dim_Local_Authority_District(Local_Authority_District_ID)
+ALTER TABLE Dim_Accident
+ADD CONSTRAINT FK_Accident_DDS_Road_Type FOREIGN KEY (Road_Type) REFERENCES Dim_Road_Type(Road_Type_ID)
+ALTER TABLE Dim_Accident
+ADD CONSTRAINT FK_Accident_DDS_Urban_or_Rural_Area FOREIGN KEY (Urban_or_Rural_Area) REFERENCES Dim_Urban_Rural(Urban_Rural_ID)
+ALTER TABLE Dim_Accident
+ADD CONSTRAINT FK_Accident_DDS_Built_up_Road_Type FOREIGN KEY (Built_up_Road_Type) REFERENCES Dim_Built_up_Road_Type(Built_up_Road_Type_ID)
+ALTER TABLE Dim_Accident
+ADD CONSTRAINT FK_Accident_DDS_Light_Condition FOREIGN KEY (Light_Condition) REFERENCES Dim_Light_Condition(Light_Condition_ID)
+ALTER TABLE Dim_Accident
+ADD CONSTRAINT FK_Accident_DDS_Carriageway_Hazard FOREIGN KEY (Carriageway_Hazard) REFERENCES Dim_Carriageway_Hazard(Carriageway_Hazard_ID)
+ALTER TABLE Dim_Accident
+ADD CONSTRAINT FK_Accident_DDS_Road_Surface_Condition FOREIGN KEY (Road_Surface_Condition) REFERENCES Dim_Road_Surface_Condition(Road_Surface_Condition_ID)
+ALTER TABLE Dim_Accident
+ADD CONSTRAINT FK_Accidentv_Special_Condition_at_Site FOREIGN KEY (Special_Condition_at_Site) REFERENCES Dim_Special_Condition_at_Site(Special_Condition_at_Site_ID)
+ALTER TABLE Dim_Accident
+ADD CONSTRAINT FK_Accident_DDS_Weather_Condition FOREIGN KEY (Weather_Condition) REFERENCES Dim_Weather_Condition(Weather_Condition_ID)
+
+alter table Dim_Accident
+drop constraint FK_Accident_DDS_Severity
+alter table Dim_Accident
+drop constraint FK_Accident_DDS_Local_Authority_District
+alter table Dim_Accident
+drop constraint FK_Accident_DDS_Road_Type
+alter table Dim_Accident
+drop constraint FK_Accident_DDS_Urban_or_Rural_Area
+alter table Dim_Accident
+drop constraint FK_Accident_DDS_Built_up_Road_Type
+alter table Dim_Accident
+drop constraint FK_Accident_DDS_Light_Condition
+alter table Dim_Accident
+drop constraint FK_Accident_DDS_Carriageway_Hazard
+alter table Dim_Accident
+drop constraint FK_Accident_DDS_Road_Surface_Condition
+alter table Dim_Accident
+drop constraint FK_Accidentv_Special_Condition_at_Site
+alter table Dim_Accident
+drop constraint FK_Accident_DDS_Weather_Condition
+
+ALTER TABLE Dim_Vehicle
+ADD CONSTRAINT FK_Vehicle_DDS_Vehicle_Type FOREIGN KEY (Vehicle_Type) REFERENCES Dim_Vehicle_Type(Vehicle_Type_ID)
+ALTER TABLE Dim_Vehicle
+ADD CONSTRAINT FK_Vehicle_DDS_Sex_of_Driver FOREIGN KEY (Sex_of_Driver) REFERENCES Dim_Sex_of_Person(Sex_of_Person_ID)
+ALTER TABLE Dim_Vehicle
+ADD CONSTRAINT FK_Vehicle_DDS_Journey_Purpose FOREIGN KEY (Journey_Purpose) REFERENCES Dim_Journey_Purpose(Journey_Purpose_ID)
+ALTER TABLE Dim_Vehicle
+ADD CONSTRAINT FK_Vehicle_DDS_Accident FOREIGN KEY (Accident_ID) REFERENCES Dim_Accident(Accident_ID)
+
+alter table Dim_Vehicle
+drop constraint FK_Vehicle_DDS_Vehicle_Type
+alter table Dim_Vehicle
+drop constraint FK_Vehicle_DDS_Sex_of_Driver
+alter table Dim_Vehicle
+drop constraint FK_Vehicle_DDS_Journey_Purpose
+alter table Dim_Vehicle
+drop constraint FK_Vehicle_DDS_Accident
+
+ALTER TABLE Dim_Casualty
+ADD CONSTRAINT FK_Casualty_DDS_Sex_of_Casualty FOREIGN KEY (Sex_of_Casualty) REFERENCES Dim_Sex_of_Person(Sex_of_Person_ID)
+ALTER TABLE Dim_Casualty
+ADD CONSTRAINT FK_Casualty_DDS_Casualty_Severity FOREIGN KEY (Casualty_Severity) REFERENCES Dim_Severity(Severity_ID)
+ALTER TABLE Dim_Casualty
+ADD CONSTRAINT FK_Casualty_DDS_Casualty_Type FOREIGN KEY (Casualty_Type) REFERENCES Dim_Casualty_Type(Casualty_Type_ID)
+ALTER TABLE Dim_Casualty
+ADD CONSTRAINT FK_Casualty_DDS_Vehicle FOREIGN KEY (Vehicle_ID) REFERENCES Dim_Vehicle(Vehicle_ID)
+ALTER TABLE Dim_Casualty
+ADD CONSTRAINT FK_Casualty_DDS_Accident FOREIGN KEY (Accident_ID) REFERENCES Dim_Accident(Accident_ID)
+ALTER TABLE Dim_Casualty
+ADD CONSTRAINT FK_Casualty_DDS_Casualty_Class FOREIGN KEY (Casualty_Class) REFERENCES Dim_Casualty_Class(Casualty_Class_ID)
+
+alter table Dim_Casualty
+drop constraint FK_Casualty_DDS_Sex_of_Casualty
+alter table Dim_Casualty
+drop constraint FK_Casualty_DDS_Casualty_Severity
+alter table Dim_Casualty
+drop constraint FK_Casualty_DDS_Casualty_Type
+alter table Dim_Casualty
+drop constraint FK_Casualty_DDS_Vehicle
+alter table Dim_Casualty
+drop constraint FK_Casualty_DDS_Accident
+alter table Dim_Casualty
+drop constraint FK_Casualty_DDS_Casualty_Class
+
+ALTER TABLE Fact_Accident
+ADD CONSTRAINT FK_Fact_Accident_Accident FOREIGN KEY (Accident_ID) REFERENCES Dim_Accident(Accident_ID)
+ALTER TABLE Fact_Accident
+ADD CONSTRAINT FK_Fact_Accident_Vehicle FOREIGN KEY (Vehicle_ID) REFERENCES Dim_Vehicle(Vehicle_ID)
+ALTER TABLE Fact_Accident
+ADD CONSTRAINT FK_Fact_Accident_Time FOREIGN KEY (Time_ID) REFERENCES Dim_Time(Time_ID)
+ALTER TABLE Fact_Accident
+ADD CONSTRAINT FK_Fact_Accident_Date FOREIGN KEY (Date_ID) REFERENCES Dim_Date(Date_ID)
+ALTER TABLE Fact_Accident
+ADD CONSTRAINT FK_Fact_Accident_Geography FOREIGN KEY (Geography_ID) REFERENCES Dim_Geography(Geography_ID)
+
+alter table Fact_Accident
+drop constraint FK_Fact_Accident_Accident
+alter table Fact_Accident
+drop constraint FK_Fact_Accident_Vehicle
+alter table Fact_Accident
+drop constraint FK_Fact_Accident_Time
+alter table Fact_Accident
+drop constraint FK_Fact_Accident_Date
+alter table Fact_Accident
+drop constraint FK_Fact_Accident_Geography
+
+ALTER TABLE Fact_Casualty
+ADD CONSTRAINT FK_Fact_Casualty_Accident FOREIGN KEY (Accident_ID) REFERENCES Dim_Accident(Accident_ID)
+ALTER TABLE Fact_Casualty
+ADD CONSTRAINT FK_Fact_Casualty_Vehicle FOREIGN KEY (Vehicle_ID) REFERENCES Dim_Vehicle(Vehicle_ID)
+ALTER TABLE Fact_Casualty
+ADD CONSTRAINT FK_Fact_Casualty_Casualty FOREIGN KEY (Casualty_ID) REFERENCES Dim_Casualty(Casualty_ID)
+ALTER TABLE Fact_Casualty
+ADD CONSTRAINT FK_Fact_Casualty_Date FOREIGN KEY (Date_ID) REFERENCES Dim_Date(Date_ID)
+ALTER TABLE Fact_Casualty
+ADD CONSTRAINT FK_Fact_Casualty_Age FOREIGN KEY (Age_ID) REFERENCES Dim_Age(Age_ID)
+
+alter table Fact_Casualty
+drop constraint FK_Fact_Casualty_Accident
+alter table Fact_Casualty
+drop constraint FK_Fact_Casualty_Vehicle
+alter table Fact_Casualty
+drop constraint FK_Fact_Casualty_Casualty
+alter table Fact_Casualty
+drop constraint FK_Fact_Casualty_Date
+alter table Fact_Casualty
+drop constraint FK_Fact_Casualty_Age
