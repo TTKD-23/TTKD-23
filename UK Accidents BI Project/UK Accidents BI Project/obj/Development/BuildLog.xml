@@ -2,28 +2,33 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>UK Accidents BI Project</Name>
-    <LastWriteTime>2021-12-20T15:44:02.5308713Z</LastWriteTime>
+    <LastWriteTime>2022-01-03T13:23:52.3554541Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>DataProfiling.dtsx</Name>
-      <LastWriteTime>2021-11-20T12:11:34.479732Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Source2Stage.dtsx</Name>
-      <LastWriteTime>2021-12-20T16:24:33.4289679Z</LastWriteTime>
+      <LastWriteTime>2022-01-03T12:58:35.8924851Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Stage2NDS.dtsx</Name>
-      <LastWriteTime>2021-12-21T05:59:27.2595181Z</LastWriteTime>
+      <LastWriteTime>2022-01-03T13:23:52.3245361Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>NDS2DDS.dtsx</Name>
-      <LastWriteTime>2021-12-24T14:46:14.1017985Z</LastWriteTime>
+      <LastWriteTime>2022-01-03T13:23:51.8363299Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>main.dtsx</Name>
+      <LastWriteTime>2022-01-03T13:23:51.8203731Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Source2Stage.dtsx</Name>
+      <LastWriteTime>2022-01-03T13:23:52.3375018Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

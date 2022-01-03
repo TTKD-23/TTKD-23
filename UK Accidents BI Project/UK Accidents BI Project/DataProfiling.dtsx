@@ -11,43 +11,11 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DataProfiling"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{CE6CBC62-193A-4EDB-9AFC-31AD2854EE14}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{469BF02C-68D3-4AD8-9B5D-D01A5879C8F0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Data profiling]"
-      DTS:CreationName="FILE"
-      DTS:DTSID="{A6CB67EA-87B2-46C6-8677-BF64CD5D7491}"
-      DTS:ObjectName="Data profiling">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:FileUsageType="1"
-          DTS:ConnectionString="D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\Data Profiling\Data profiling" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Data Profiling]"
-      DTS:CreationName="FILE"
-      DTS:DTSID="{605E33BA-EA4A-4CE8-8D2A-2A656F0BD742}"
-      DTS:ObjectName="Data Profiling">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:FileUsageType="1"
-          DTS:ConnectionString="D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\Data Profiling\Data Profiling" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.TTKD_23]"
-      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{FD55586D-743E-49C9-9567-8BE8D660EE1E}"
-      DTS:ObjectName="LocalHost.TTKD_23">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=TTKD_23;Integrated Security=True;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.TTKD_23_Stage]"
       DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
@@ -59,17 +27,6 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Online_Retails.xlsx]"
-      DTS:CreationName="FILE"
-      DTS:DTSID="{647372B9-A727-4A0D-AAE9-986BCF80EEFB}"
-      DTS:ObjectName="Online_Retails.xlsx">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:FileUsageType="1"
-          DTS:ConnectionString="D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\Data Profiling\Online_Retails.xlsx" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[profiling]"
       DTS:CreationName="FILE"
       DTS:DTSID="{995A0585-C558-4469-BADE-016FE9647484}"
@@ -77,7 +34,7 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:FileUsageType="1"
-          DTS:ConnectionString="D:\Nam 4\HKI\HTTT TTKD\ĐỒ ÁN\TTKD-23\Data Profiling\profiling" />
+          DTS:ConnectionString="D:\GITHUB\TTKD-23\Data Profiling\profiling" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -864,7 +821,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="168,42"
+          Size="168,42.6666666666667"
           Id="Package\Data Profiling Task"
           TopLeft="205.624996935949,46.1499991747737" />
       </GraphLayout>
