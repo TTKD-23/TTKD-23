@@ -1,0 +1,140 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c8dd3fba-610e-4e61-b4b9-8dcb3ebcfe57" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>FACT VARIANCE</ID>
+  <Name>FACT VARIANCE</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="70cbe771-5786-4d50-980c-397887bbf6f8">
+      <ID>Fact Variance</ID>
+      <Name>Fact Variance</Name>
+      <DimensionID>Fact Variance</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="1e7d48b1-ec31-438a-9bee-d93e684c90a6">
+          <AttributeID>Fact Variance ID</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="65c0bfab-8618-4be3-96bb-889fab51e981">
+      <ID>Fact Variance</ID>
+      <Name>Fact Variance</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="0b5e091f-c6dd-4916-a15c-04e33f1c3fc4">
+          <ID>Accident ID</ID>
+          <Name>Accident ID</Name>
+          <Source dwd:design-time-name="11ef8cb3-e80b-4dbd-a3e9-8e5b416e419b">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="0d1c8e76-81d2-41af-af0f-d89b6d78bed9">
+              <TableID>dbo_Fact_Variance</TableID>
+              <ColumnID>Accident_ID</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="c2af5e78-47cc-4036-8225-0cef8c549475">
+          <ID>Count In Last Year</ID>
+          <Name>Count In Last Year</Name>
+          <Source dwd:design-time-name="6b9a70a9-a0bf-430e-95cb-10f0fb606b77">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="f3477bb3-e6aa-4efd-ba3e-a65372a43d29">
+              <TableID>dbo_Fact_Variance</TableID>
+              <ColumnID>Count_in_Last_Year</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="6f51163c-7dfd-4426-89a6-1c4b0a5e32e5">
+          <ID>Count In This Year</ID>
+          <Name>Count In This Year</Name>
+          <Source dwd:design-time-name="98bf4ab4-7b66-4932-8576-c1694a3cfd11">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="4089d213-cf9a-4ed4-b419-24decbdfe6f5">
+              <TableID>dbo_Fact_Variance</TableID>
+              <ColumnID>Count_in_This_Year</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="f8d00989-5732-4c52-bfa2-9a0ef73ee1ad">
+          <ID>Fact Variance Count</ID>
+          <Name>Fact Variance Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="7eee1941-f021-4062-8dcd-99df56c7216f">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="c4360dac-0fdf-47c8-a10c-f9d5c7b7caaa">
+              <TableID>dbo_Fact_Variance</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="3e1f4b39-e04c-46af-936e-b4fde8fd70bb">
+          <CubeDimensionID>Fact Variance</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="dcebdbe2-ebb9-4730-9cf9-ee74dfafa60e">
+              <AttributeID>Fact Variance ID</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c2e9bd27-c1f0-4d69-a225-9b358e0c0d6c">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="872ae25b-25fb-4837-8353-1565f55c25bc">
+                    <TableID>dbo_Fact_Variance</TableID>
+                    <ColumnID>Fact_Variance_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="244f632e-3498-4bd1-87d7-a28128758948">
+    <DataSourceViewID>TTKD 23 DDS</DataSourceViewID>
+  </Source>
+</Cube>
