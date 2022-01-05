@@ -36,6 +36,11 @@
         <ID>Fact Variance</ID>
       </Dimension>
     </Dimensions>
+    <MiningStructures>
+      <MiningStructure>
+        <ID>AccidentSeverity</ID>
+      </MiningStructure>
+    </MiningStructures>
     <Cubes>
       <Cube>
         <ID>FACT ACCIDENT</ID>

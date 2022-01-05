@@ -8,7 +8,7 @@
     <TransactionalDeployment>false</TransactionalDeployment>
     <PartitionDeployment>DeployPartitions</PartitionDeployment>
     <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
-    <ProcessingOption>Default</ProcessingOption>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
     <OutputScript></OutputScript>
     <ImpactAnalysisFile></ImpactAnalysisFile>
     <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
@@ -108,6 +108,13 @@
           <String>FACT VARIANCE</String>
         </ID>
       </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.MiningStructure</Type>
+        <TimeStamp>0Rnd61mrIo2+X6OLUhIC747Q6SM=1/5/2022 3:23:31 PM1/5/2022 3:20:25 PM</TimeStamp>
+        <ID>
+          <String>AccidentSeverity</String>
+        </ID>
+      </ObjectSnapshot>
     </ObjectSnapshots>
     <DatabaseSnapshot>
       <Type>Microsoft.AnalysisServices.Database</Type>
@@ -120,5 +127,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2022-01-05T06:53:04.943333Z</LastDeployed>
+  <LastDeployed>2022-01-05T08:23:34.156667Z</LastDeployed>
 </DeploymentSnapshot>

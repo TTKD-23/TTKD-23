@@ -84,6 +84,12 @@
       <FullPath>TTKD 23 DDS.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
+  <MiningModels>
+    <ProjectItem>
+      <Name>AccidentSeverity.dmm</Name>
+      <FullPath>AccidentSeverity.dmm</FullPath>
+    </ProjectItem>
+  </MiningModels>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
