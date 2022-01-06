@@ -40,6 +40,9 @@
       <MiningStructure>
         <ID>AccidentSeverity</ID>
       </MiningStructure>
+      <MiningStructure>
+        <ID>KhuVucThuongXayRaTaiNan</ID>
+      </MiningStructure>
     </MiningStructures>
     <Cubes>
       <Cube>

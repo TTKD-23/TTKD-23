@@ -89,6 +89,10 @@
       <Name>AccidentSeverity.dmm</Name>
       <FullPath>AccidentSeverity.dmm</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>KhuVucThuongXayRaTaiNan.dmm</Name>
+      <FullPath>KhuVucThuongXayRaTaiNan.dmm</FullPath>
+    </ProjectItem>
   </MiningModels>
   <Configurations>
     <Configuration>

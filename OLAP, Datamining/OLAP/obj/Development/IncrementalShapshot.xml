@@ -110,9 +110,16 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.MiningStructure</Type>
-        <TimeStamp>0Rnd61mrIo2+X6OLUhIC747Q6SM=1/5/2022 3:23:31 PM1/5/2022 3:20:25 PM</TimeStamp>
+        <TimeStamp>YgEBo+/xHYfcF889H5B69HNH7lA=1/6/2022 11:29:04 AM1/5/2022 3:20:25 PM</TimeStamp>
         <ID>
           <String>AccidentSeverity</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.MiningStructure</Type>
+        <TimeStamp>dClsjlNAPVznPFo2E42e487gQbY=1/6/2022 11:30:50 AM1/6/2022 11:29:04 AM</TimeStamp>
+        <ID>
+          <String>KhuVucThuongXayRaTaiNan</String>
         </ID>
       </ObjectSnapshot>
     </ObjectSnapshots>
@@ -127,5 +134,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2022-01-05T08:23:34.156667Z</LastDeployed>
+  <LastDeployed>2022-01-06T04:30:52.983333Z</LastDeployed>
 </DeploymentSnapshot>
