@@ -923,7 +923,7 @@
       <column caption='CreatedDate (Dim Geography)' datatype='datetime' name='[CreatedDate (Dim_Geography)]' role='dimension' type='ordinal' />
       <column caption='Created Date' datatype='datetime' name='[CreatedDate]' role='dimension' type='ordinal' />
       <column caption='Day of Week' datatype='integer' name='[Day_of_Week]' role='dimension' type='quantitative' />
-      <column aggregation='Sum' caption='Geography ID (Dim Geography)' datatype='integer' name='[Geography_ID (Dim_Geography)]' role='dimension' semantic-role='[Country].[Name]' type='nominal' />
+      <column aggregation='Sum' caption='Geography ID (Dim Geography)' datatype='integer' name='[Geography_ID (Dim_Geography)]' role='dimension' semantic-role='[Country].[Name]' type='ordinal' />
       <column caption='Geography ID' datatype='integer' name='[Geography_ID]' role='dimension' type='ordinal' />
       <column aggregation='CountD' datatype='string' name='[Latitude]' role='dimension' semantic-role='[Country].[Name]' type='nominal' />
       <column aggregation='Sum' caption='Light Condition' datatype='integer' name='[Light_Condition]' role='dimension' type='ordinal' />
@@ -1015,7 +1015,7 @@
     <mapsource name='Tableau' />
   </mapsources>
   <worksheets>
-    <worksheet name='Sheet 1'>
+    <worksheet name='FUNC06'>
       <table>
         <view>
           <datasources>
@@ -1108,7 +1108,7 @@
     </worksheet>
   </worksheets>
   <windows saved-dpi-scale-factor='1.5' source-height='44'>
-    <window class='worksheet' maximized='true' name='Sheet 1'>
+    <window class='worksheet' maximized='true' name='FUNC06'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1187,7 +1187,7 @@
     </window>
   </windows>
   <thumbnails>
-    <thumbnail height='192' name='Sheet 1' width='192'>
+    <thumbnail height='192' name='FUNC06' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABYlAAAWJQFJUiTw
       AAAgAElEQVR4nO2955NkWXYf9nsvvTdlu9qbmZ7umZ7Z8TPrZrGC2QW1BEEYMaigGKEQBf0N
       +oS/QBEK6YMkRkgRCLogCQlBEgRALLC7mPU7Ozumx7U31aZcep8v8+lD9u/WeTfve5lZVd3V
