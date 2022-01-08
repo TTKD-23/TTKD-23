@@ -3,10 +3,11 @@
     <DataSources>
       <DataSource>
         <ID>TTKD 23 DDS</ID>
-        <ConnectionString>Provider=SQLNCLI11.1;Data Source=LAPTOP-CURK33BG\MSBI;Integrated Security=SSPI;Initial Catalog=TTKD_23_DDS</ConnectionString>
+        <ConnectionString>Provider=SQLNCLI11.1;Data Source=.\;Integrated Security=SSPI;Initial Catalog=TTKD_23_DDS</ConnectionString>
         <ImpersonationInfo>
-          <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateServiceAccount</ImpersonationMode>
-          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
+          <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateAccount</ImpersonationMode>
+          <Account xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">kevinpro2000@gmail.com</Account>
+          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">PasswordRemoved</ImpersonationInfoSecurity>
         </ImpersonationInfo>
       </DataSource>
     </DataSources>
