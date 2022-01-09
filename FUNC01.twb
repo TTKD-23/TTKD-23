@@ -1,0 +1,1747 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20214.21.1217.2252                               -->
+<workbook original-version='18.1' source-build='2021.4.2 (20214.21.1217.2252)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelRelationshipPerfOptions.true...ObjectModelRelationshipPerfOptions />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='Fact_Casualty+ (TTKD_23_DDS)' inline='true' name='federated.0gejjvw03ymfy615k28sk0gzeeft' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='LAPTOP-CURK33BG\MSBI' name='sqlserver.183za5v018evqd15a481s0jq4p9k'>
+            <connection authentication='sspi' class='sqlserver' dbname='TTKD_23_DDS' minimum-driver-version='SQL Server Native Client 10.0' odbc-native-protocol='yes' one-time-sql='' server='LAPTOP-CURK33BG\MSBI' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='sqlserver.183za5v018evqd15a481s0jq4p9k' name='Dim_Accident' table='[dbo].[Dim_Accident]' type='table' />
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='sqlserver.183za5v018evqd15a481s0jq4p9k' name='Fact_Casualty' table='[dbo].[Fact_Casualty]' type='table' />
+          <relation connection='sqlserver.183za5v018evqd15a481s0jq4p9k' name='Dim_Accident' table='[dbo].[Dim_Accident]' type='table' />
+          <relation connection='sqlserver.183za5v018evqd15a481s0jq4p9k' name='Dim_Local_Authority_District' table='[dbo].[Dim_Local_Authority_District]' type='table' />
+          <relation connection='sqlserver.183za5v018evqd15a481s0jq4p9k' name='Dim_Severity' table='[dbo].[Dim_Severity]' type='table' />
+          <relation connection='sqlserver.183za5v018evqd15a481s0jq4p9k' name='Dim_Date' table='[dbo].[Dim_Date]' type='table' />
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[Accident_ID (Dim_Accident)]' value='[Dim_Accident].[Accident_ID]' />
+          <map key='[Accident_ID]' value='[Fact_Casualty].[Accident_ID]' />
+          <map key='[Accident_Index]' value='[Dim_Accident].[Accident_Index]' />
+          <map key='[Accident_Severity]' value='[Dim_Accident].[Accident_Severity]' />
+          <map key='[Age_ID]' value='[Fact_Casualty].[Age_ID]' />
+          <map key='[Built_up_Road_Type]' value='[Dim_Accident].[Built_up_Road_Type]' />
+          <map key='[CalendarQuarter]' value='[Dim_Date].[CalendarQuarter]' />
+          <map key='[CalendarYear]' value='[Dim_Date].[CalendarYear]' />
+          <map key='[Carriageway_Hazard]' value='[Dim_Accident].[Carriageway_Hazard]' />
+          <map key='[Casualty_ID]' value='[Fact_Casualty].[Casualty_ID]' />
+          <map key='[CreatedDate (Dim_Accident)]' value='[Dim_Accident].[CreatedDate]' />
+          <map key='[CreatedDate (Dim_Date)]' value='[Dim_Date].[CreatedDate]' />
+          <map key='[CreatedDate]' value='[Fact_Casualty].[CreatedDate]' />
+          <map key='[Date]' value='[Dim_Accident].[Date]' />
+          <map key='[Date_ID (Dim_Date)]' value='[Dim_Date].[Date_ID]' />
+          <map key='[Date_ID]' value='[Fact_Casualty].[Date_ID]' />
+          <map key='[DayNameOfWeek]' value='[Dim_Date].[DayNameOfWeek]' />
+          <map key='[DayNumberOfMonth]' value='[Dim_Date].[DayNumberOfMonth]' />
+          <map key='[DayNumberOfWeek]' value='[Dim_Date].[DayNumberOfWeek]' />
+          <map key='[Day_of_Week]' value='[Dim_Accident].[Day_of_Week]' />
+          <map key='[Fact_Casualty_ID]' value='[Fact_Casualty].[Fact_Casualty_ID]' />
+          <map key='[FullDate]' value='[Dim_Date].[FullDate]' />
+          <map key='[Geography_ID]' value='[Dim_Accident].[Geography_ID]' />
+          <map key='[Latitude]' value='[Dim_Accident].[Latitude]' />
+          <map key='[Light_Condition]' value='[Dim_Accident].[Light_Condition]' />
+          <map key='[LocalAuthorityDistrictCode]' value='[Dim_Local_Authority_District].[LocalAuthorityDistrictCode]' />
+          <map key='[LocalAuthorityDistrictName]' value='[Dim_Local_Authority_District].[LocalAuthorityDistrictName]' />
+          <map key='[Local_Authority_District]' value='[Dim_Accident].[Local_Authority_District]' />
+          <map key='[Local_Authority_District_ID]' value='[Dim_Local_Authority_District].[Local_Authority_District_ID]' />
+          <map key='[Location_Easting_OSGR]' value='[Dim_Accident].[Location_Easting_OSGR]' />
+          <map key='[Location_Northing_OSGR]' value='[Dim_Accident].[Location_Northing_OSGR]' />
+          <map key='[Longitude]' value='[Dim_Accident].[Longitude]' />
+          <map key='[MonthName]' value='[Dim_Date].[MonthName]' />
+          <map key='[MonthNumberOfYear]' value='[Dim_Date].[MonthNumberOfYear]' />
+          <map key='[Number_of_Casualties]' value='[Dim_Accident].[Number_of_Casualties]' />
+          <map key='[Number_of_Vehicles]' value='[Dim_Accident].[Number_of_Vehicles]' />
+          <map key='[Road_Surface_Condition]' value='[Dim_Accident].[Road_Surface_Condition]' />
+          <map key='[Road_Type]' value='[Dim_Accident].[Road_Type]' />
+          <map key='[Session_in_Day]' value='[Dim_Accident].[Session_in_Day]' />
+          <map key='[SeverityCode]' value='[Dim_Severity].[SeverityCode]' />
+          <map key='[SeverityName]' value='[Dim_Severity].[SeverityName]' />
+          <map key='[Severity_ID]' value='[Dim_Severity].[Severity_ID]' />
+          <map key='[SourceID]' value='[Dim_Accident].[SourceID]' />
+          <map key='[Special_Condition_at_Site]' value='[Dim_Accident].[Special_Condition_at_Site]' />
+          <map key='[Speed_limit]' value='[Dim_Accident].[Speed_limit]' />
+          <map key='[StatusID]' value='[Dim_Accident].[StatusID]' />
+          <map key='[Time]' value='[Dim_Accident].[Time]' />
+          <map key='[UpdatedDate (Dim_Accident)]' value='[Dim_Accident].[UpdatedDate]' />
+          <map key='[UpdatedDate (Dim_Date)]' value='[Dim_Date].[UpdatedDate]' />
+          <map key='[UpdatedDate]' value='[Fact_Casualty].[UpdatedDate]' />
+          <map key='[Urban_or_Rural_Area]' value='[Dim_Accident].[Urban_or_Rural_Area]' />
+          <map key='[Vehicle_ID]' value='[Fact_Casualty].[Vehicle_ID]' />
+          <map key='[Weather_Condition]' value='[Dim_Accident].[Weather_Condition]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Fact_Casualty_ID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Fact_Casualty_ID]</local-name>
+            <parent-name>[Fact_Casualty]</parent-name>
+            <remote-alias>Fact_Casualty_ID</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Casualty_ID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Casualty_ID]</local-name>
+            <parent-name>[Fact_Casualty]</parent-name>
+            <remote-alias>Casualty_ID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Vehicle_ID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Vehicle_ID]</local-name>
+            <parent-name>[Fact_Casualty]</parent-name>
+            <remote-alias>Vehicle_ID</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Accident_ID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Accident_ID]</local-name>
+            <parent-name>[Fact_Casualty]</parent-name>
+            <remote-alias>Accident_ID</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Age_ID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Age_ID]</local-name>
+            <parent-name>[Fact_Casualty]</parent-name>
+            <remote-alias>Age_ID</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date_ID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Date_ID]</local-name>
+            <parent-name>[Fact_Casualty]</parent-name>
+            <remote-alias>Date_ID</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CreatedDate</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[CreatedDate]</local-name>
+            <parent-name>[Fact_Casualty]</parent-name>
+            <remote-alias>CreatedDate</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UpdatedDate</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[UpdatedDate]</local-name>
+            <parent-name>[Fact_Casualty]</parent-name>
+            <remote-alias>UpdatedDate</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Accident_ID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Accident_ID (Dim_Accident)]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Accident_ID</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Accident_Index</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Accident_Index]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Accident_Index</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Location_Easting_OSGR</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Location_Easting_OSGR]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Location_Easting_OSGR</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Location_Northing_OSGR</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Location_Northing_OSGR]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Location_Northing_OSGR</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Longitude</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Longitude]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Longitude</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Latitude</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Latitude]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Latitude</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_CHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Accident_Severity</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Accident_Severity]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Accident_Severity</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Number_of_Vehicles</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Number_of_Vehicles]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Number_of_Vehicles</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Number_of_Casualties</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Number_of_Casualties]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Number_of_Casualties</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Day_of_Week</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Day_of_Week]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Day_of_Week</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Time</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Time]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Time</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Session_in_Day</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Session_in_Day]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Session_in_Day</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Local_Authority_District</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Local_Authority_District]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Local_Authority_District</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Road_Type</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Road_Type]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Road_Type</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Speed_limit</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Speed_limit]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Speed_limit</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Built_up_Road_Type</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Built_up_Road_Type]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Built_up_Road_Type</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Light_Condition</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Light_Condition]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Light_Condition</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Weather_Condition</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Weather_Condition]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Weather_Condition</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Road_Surface_Condition</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Road_Surface_Condition]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Road_Surface_Condition</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Special_Condition_at_Site</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Special_Condition_at_Site]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Special_Condition_at_Site</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Carriageway_Hazard</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Carriageway_Hazard]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Carriageway_Hazard</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Urban_or_Rural_Area</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Urban_or_Rural_Area]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Urban_or_Rural_Area</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Geography_ID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Geography_ID]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>Geography_ID</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>StatusID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[StatusID]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>StatusID</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SourceID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[SourceID]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>SourceID</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CreatedDate</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[CreatedDate (Dim_Accident)]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>CreatedDate</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UpdatedDate</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[UpdatedDate (Dim_Accident)]</local-name>
+            <parent-name>[Dim_Accident]</parent-name>
+            <remote-alias>UpdatedDate</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Local_Authority_District_ID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Local_Authority_District_ID]</local-name>
+            <parent-name>[Dim_Local_Authority_District]</parent-name>
+            <remote-alias>Local_Authority_District_ID</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Local_Authority_District_6AF191FD48BD4FAC80ABF1BCE62AD60A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LocalAuthorityDistrictCode</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[LocalAuthorityDistrictCode]</local-name>
+            <parent-name>[Dim_Local_Authority_District]</parent-name>
+            <remote-alias>LocalAuthorityDistrictCode</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Local_Authority_District_6AF191FD48BD4FAC80ABF1BCE62AD60A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LocalAuthorityDistrictName</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[LocalAuthorityDistrictName]</local-name>
+            <parent-name>[Dim_Local_Authority_District]</parent-name>
+            <remote-alias>LocalAuthorityDistrictName</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Local_Authority_District_6AF191FD48BD4FAC80ABF1BCE62AD60A]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Severity_ID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Severity_ID]</local-name>
+            <parent-name>[Dim_Severity]</parent-name>
+            <remote-alias>Severity_ID</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Severity_02CD01CB31DA46288059A2765FF3C1D9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SeverityCode</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[SeverityCode]</local-name>
+            <parent-name>[Dim_Severity]</parent-name>
+            <remote-alias>SeverityCode</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Severity_02CD01CB31DA46288059A2765FF3C1D9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SeverityName</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[SeverityName]</local-name>
+            <parent-name>[Dim_Severity]</parent-name>
+            <remote-alias>SeverityName</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>100</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Severity_02CD01CB31DA46288059A2765FF3C1D9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date_ID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Date_ID (Dim_Date)]</local-name>
+            <parent-name>[Dim_Date]</parent-name>
+            <remote-alias>Date_ID</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Date_D3821580483640E681C0FB4FEF50F6CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FullDate</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[FullDate]</local-name>
+            <parent-name>[Dim_Date]</parent-name>
+            <remote-alias>FullDate</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Date_D3821580483640E681C0FB4FEF50F6CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DayNumberOfWeek</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[DayNumberOfWeek]</local-name>
+            <parent-name>[Dim_Date]</parent-name>
+            <remote-alias>DayNumberOfWeek</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Date_D3821580483640E681C0FB4FEF50F6CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DayNameOfWeek</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[DayNameOfWeek]</local-name>
+            <parent-name>[Dim_Date]</parent-name>
+            <remote-alias>DayNameOfWeek</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Date_D3821580483640E681C0FB4FEF50F6CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DayNumberOfMonth</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[DayNumberOfMonth]</local-name>
+            <parent-name>[Dim_Date]</parent-name>
+            <remote-alias>DayNumberOfMonth</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Date_D3821580483640E681C0FB4FEF50F6CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MonthName</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[MonthName]</local-name>
+            <parent-name>[Dim_Date]</parent-name>
+            <remote-alias>MonthName</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>false</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Date_D3821580483640E681C0FB4FEF50F6CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MonthNumberOfYear</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[MonthNumberOfYear]</local-name>
+            <parent-name>[Dim_Date]</parent-name>
+            <remote-alias>MonthNumberOfYear</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Date_D3821580483640E681C0FB4FEF50F6CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CalendarQuarter</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[CalendarQuarter]</local-name>
+            <parent-name>[Dim_Date]</parent-name>
+            <remote-alias>CalendarQuarter</remote-alias>
+            <ordinal>54</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Date_D3821580483640E681C0FB4FEF50F6CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CalendarYear</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[CalendarYear]</local-name>
+            <parent-name>[Dim_Date]</parent-name>
+            <remote-alias>CalendarYear</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Date_D3821580483640E681C0FB4FEF50F6CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CreatedDate</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[CreatedDate (Dim_Date)]</local-name>
+            <parent-name>[Dim_Date]</parent-name>
+            <remote-alias>CreatedDate</remote-alias>
+            <ordinal>56</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Date_D3821580483640E681C0FB4FEF50F6CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UpdatedDate</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[UpdatedDate (Dim_Date)]</local-name>
+            <parent-name>[Dim_Date]</parent-name>
+            <remote-alias>UpdatedDate</remote-alias>
+            <ordinal>57</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Dim_Date_D3821580483640E681C0FB4FEF50F6CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='Sum' datatype='integer' name='[Accident_ID (Dim_Accident)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Accident_ID]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Accident_Severity]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Age_ID]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Built_up_Road_Type]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[CalendarQuarter]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[CalendarYear]' role='dimension' type='quantitative' />
+      <column aggregation='Sum' datatype='integer' name='[Carriageway_Hazard]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Casualty_ID]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Date_ID (Dim_Date)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Date_ID]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[DayNumberOfMonth]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[DayNumberOfWeek]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[Day_of_Week]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[Fact_Casualty_ID]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Geography_ID]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Light_Condition]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[LocalAuthorityDistrictCode]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Local_Authority_District]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Local_Authority_District_ID]' role='dimension' type='ordinal' />
+      <column aggregation='Avg' datatype='integer' name='[Longitude]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+      <column datatype='integer' name='[MonthNumberOfYear]' role='dimension' type='quantitative' />
+      <column aggregation='Sum' datatype='integer' name='[Road_Surface_Condition]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Road_Type]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Session_in_Day]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[SeverityCode]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Severity_ID]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[SourceID]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Special_Condition_at_Site]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[StatusID]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Urban_or_Rural_Area]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Vehicle_ID]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Weather_Condition]' role='dimension' type='ordinal' />
+      <_.fcp.ObjectModelTableType.true...column caption='Dim_Accident' datatype='table' name='[__tableau_internal_object_id__].[Dim_Accident_433EC53BF48A4641834FF669C5DCC72A]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Dim_Date' datatype='table' name='[__tableau_internal_object_id__].[Dim_Date_D3821580483640E681C0FB4FEF50F6CD]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Dim_Local_Authority_District' datatype='table' name='[__tableau_internal_object_id__].[Dim_Local_Authority_District_6AF191FD48BD4FAC80ABF1BCE62AD60A]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Dim_Severity' datatype='table' name='[__tableau_internal_object_id__].[Dim_Severity_02CD01CB31DA46288059A2765FF3C1D9]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Fact_Casualty' datatype='table' name='[__tableau_internal_object_id__].[Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8]' role='measure' type='quantitative' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Viet Nam&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Dim_Accident' id='Dim_Accident_433EC53BF48A4641834FF669C5DCC72A'>
+            <properties context=''>
+              <relation connection='sqlserver.183za5v018evqd15a481s0jq4p9k' name='Dim_Accident' table='[dbo].[Dim_Accident]' type='table' />
+            </properties>
+          </object>
+          <object caption='Dim_Date' id='Dim_Date_D3821580483640E681C0FB4FEF50F6CD'>
+            <properties context=''>
+              <relation connection='sqlserver.183za5v018evqd15a481s0jq4p9k' name='Dim_Date' table='[dbo].[Dim_Date]' type='table' />
+            </properties>
+          </object>
+          <object caption='Dim_Local_Authority_District' id='Dim_Local_Authority_District_6AF191FD48BD4FAC80ABF1BCE62AD60A'>
+            <properties context=''>
+              <relation connection='sqlserver.183za5v018evqd15a481s0jq4p9k' name='Dim_Local_Authority_District' table='[dbo].[Dim_Local_Authority_District]' type='table' />
+            </properties>
+          </object>
+          <object caption='Dim_Severity' id='Dim_Severity_02CD01CB31DA46288059A2765FF3C1D9'>
+            <properties context=''>
+              <relation connection='sqlserver.183za5v018evqd15a481s0jq4p9k' name='Dim_Severity' table='[dbo].[Dim_Severity]' type='table' />
+            </properties>
+          </object>
+          <object caption='Fact_Casualty' id='Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8'>
+            <properties context=''>
+              <relation connection='sqlserver.183za5v018evqd15a481s0jq4p9k' name='Fact_Casualty' table='[dbo].[Fact_Casualty]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[Accident_ID]' />
+              <expression op='[Accident_ID (Dim_Accident)]' />
+            </expression>
+            <first-end-point object-id='Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='Dim_Accident_433EC53BF48A4641834FF669C5DCC72A' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[Date_ID]' />
+              <expression op='[Date_ID (Dim_Date)]' />
+            </expression>
+            <first-end-point object-id='Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='Dim_Date_D3821580483640E681C0FB4FEF50F6CD' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[Local_Authority_District]' />
+              <expression op='[Local_Authority_District_ID]' />
+            </expression>
+            <first-end-point object-id='Dim_Accident_433EC53BF48A4641834FF669C5DCC72A' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='Dim_Local_Authority_District_6AF191FD48BD4FAC80ABF1BCE62AD60A' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[Accident_Severity]' />
+              <expression op='[Severity_ID]' />
+            </expression>
+            <first-end-point object-id='Dim_Accident_433EC53BF48A4641834FF669C5DCC72A' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='Dim_Severity_02CD01CB31DA46288059A2765FF3C1D9' unique-key='true' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Fact_Casualty+ (TTKD_23_DDS)' name='federated.0gejjvw03ymfy615k28sk0gzeeft' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0gejjvw03ymfy615k28sk0gzeeft'>
+            <column datatype='date' name='[FullDate]' role='dimension' type='ordinal' />
+            <column datatype='string' name='[LocalAuthorityDistrictName]' role='dimension' type='nominal' />
+            <_.fcp.ObjectModelTableType.false...column caption='Fact_Casualty' datatype='integer' name='[__tableau_internal_object_id__].[Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8]' role='measure' type='quantitative' />
+            <column datatype='string' name='[SeverityName]' role='dimension' type='nominal' />
+            <_.fcp.ObjectModelTableType.true...column caption='Fact_Casualty' datatype='table' name='[__tableau_internal_object_id__].[Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8]' role='measure' type='quantitative' />
+            <column-instance column='[__tableau_internal_object_id__].[Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[LocalAuthorityDistrictName]' derivation='None' name='[none:LocalAuthorityDistrictName:nk]' pivot='key' type='nominal' />
+            <column-instance column='[SeverityName]' derivation='None' name='[none:SeverityName:nk]' pivot='key' type='nominal' />
+            <column-instance column='[FullDate]' derivation='Year' name='[yr:FullDate:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <manual-sort column='[federated.0gejjvw03ymfy615k28sk0gzeeft].[none:LocalAuthorityDistrictName:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>%all%</bucket>
+              <bucket>&quot;Birmingham&quot;</bucket>
+              <bucket>&quot;Leeds&quot;</bucket>
+              <bucket>&quot;Cornwall&quot;</bucket>
+              <bucket>&quot;Bradford&quot;</bucket>
+              <bucket>&quot;Liverpool&quot;</bucket>
+              <bucket>&quot;County Durham&quot;</bucket>
+              <bucket>&quot;Wiltshire&quot;</bucket>
+              <bucket>&quot;Cheshire East&quot;</bucket>
+              <bucket>&quot;Westminster&quot;</bucket>
+              <bucket>&quot;Sheffield&quot;</bucket>
+              <bucket>&quot;Manchester&quot;</bucket>
+              <bucket>&quot;Kirklees&quot;</bucket>
+              <bucket>&quot;Doncaster&quot;</bucket>
+              <bucket>&quot;East Riding of Yorkshire&quot;</bucket>
+              <bucket>&quot;Cheshire West and Chester&quot;</bucket>
+              <bucket>&quot;Barnet&quot;</bucket>
+              <bucket>&quot;Lambeth&quot;</bucket>
+              <bucket>&quot;Leicester&quot;</bucket>
+              <bucket>&quot;Bristol, City of&quot;</bucket>
+              <bucket>&quot;Northumberland&quot;</bucket>
+              <bucket>&quot;Ealing&quot;</bucket>
+              <bucket>&quot;Croydon&quot;</bucket>
+              <bucket>&quot;Wandsworth&quot;</bucket>
+              <bucket>&quot;Wakefield&quot;</bucket>
+              <bucket>&quot;Brighton and Hove&quot;</bucket>
+              <bucket>&quot;Kingston upon Hull, City of&quot;</bucket>
+              <bucket>&quot;Nottingham&quot;</bucket>
+              <bucket>&quot;Milton Keynes&quot;</bucket>
+              <bucket>&quot;Tower Hamlets&quot;</bucket>
+              <bucket>&quot;Southwark&quot;</bucket>
+              <bucket>&quot;Enfield&quot;</bucket>
+              <bucket>&quot;Stoke-on-Trent&quot;</bucket>
+              <bucket>&quot;Rotherham&quot;</bucket>
+              <bucket>&quot;Shropshire&quot;</bucket>
+              <bucket>&quot;Hounslow&quot;</bucket>
+              <bucket>&quot;Central Bedfordshire&quot;</bucket>
+              <bucket>&quot;Lewisham&quot;</bucket>
+              <bucket>&quot;Cardiff&quot;</bucket>
+              <bucket>&quot;Brent&quot;</bucket>
+              <bucket>&quot;Haringey&quot;</bucket>
+              <bucket>&quot;Hillingdon&quot;</bucket>
+              <bucket>&quot;Redbridge&quot;</bucket>
+              <bucket>&quot;Camden&quot;</bucket>
+              <bucket>&quot;Islington&quot;</bucket>
+              <bucket>&quot;Guildford&quot;</bucket>
+              <bucket>&quot;Newcastle upon Tyne&quot;</bucket>
+              <bucket>&quot;Derby&quot;</bucket>
+              <bucket>&quot;Medway&quot;</bucket>
+              <bucket>&quot;North Lincolnshire&quot;</bucket>
+              <bucket>&quot;Plymouth&quot;</bucket>
+              <bucket>&quot;Peterborough&quot;</bucket>
+              <bucket>&quot;Newham&quot;</bucket>
+              <bucket>&quot;Sunderland&quot;</bucket>
+              <bucket>&quot;Hackney&quot;</bucket>
+              <bucket>&quot;Wirral&quot;</bucket>
+              <bucket>&quot;Warrington&quot;</bucket>
+              <bucket>&quot;Bromley&quot;</bucket>
+              <bucket>&quot;North East Lincolnshire&quot;</bucket>
+              <bucket>&quot;Southampton&quot;</bucket>
+              <bucket>&quot;Portsmouth&quot;</bucket>
+              <bucket>&quot;Coventry&quot;</bucket>
+              <bucket>&quot;Waltham Forest&quot;</bucket>
+              <bucket>&quot;East Lindsey&quot;</bucket>
+              <bucket>&quot;Barnsley&quot;</bucket>
+              <bucket>&quot;Kensington and Chelsea&quot;</bucket>
+              <bucket>&quot;Havering&quot;</bucket>
+              <bucket>&quot;Gateshead&quot;</bucket>
+              <bucket>&quot;Sandwell&quot;</bucket>
+              <bucket>&quot;Hammersmith and Fulham&quot;</bucket>
+              <bucket>&quot;Sefton&quot;</bucket>
+              <bucket>&quot;Harrogate&quot;</bucket>
+              <bucket>&quot;Greenwich&quot;</bucket>
+              <bucket>&quot;Swansea&quot;</bucket>
+              <bucket>&quot;Reigate and Banstead&quot;</bucket>
+              <bucket>&quot;Maidstone&quot;</bucket>
+              <bucket>&quot;Bolton&quot;</bucket>
+              <bucket>&quot;Rhondda, Cynon, Taff&quot;</bucket>
+              <bucket>&quot;Carmarthenshire&quot;</bucket>
+              <bucket>&quot;South Gloucestershire&quot;</bucket>
+              <bucket>&quot;Bournemouth&quot;</bucket>
+              <bucket>&quot;Dartford&quot;</bucket>
+              <bucket>&quot;New Forest&quot;</bucket>
+              <bucket>&quot;Wealden&quot;</bucket>
+              <bucket>&quot;Wolverhampton&quot;</bucket>
+              <bucket>&quot;Calderdale&quot;</bucket>
+              <bucket>&quot;Herefordshire, County of&quot;</bucket>
+              <bucket>&quot;Preston&quot;</bucket>
+              <bucket>&quot;Blackpool&quot;</bucket>
+              <bucket>&quot;Cherwell&quot;</bucket>
+              <bucket>&quot;Slough&quot;</bucket>
+              <bucket>&quot;Blackburn with Darwen&quot;</bucket>
+              <bucket>&quot;Huntingdonshire&quot;</bucket>
+              <bucket>&quot;Luton&quot;</bucket>
+              <bucket>&quot;Dudley&quot;</bucket>
+              <bucket>&quot;Walsall&quot;</bucket>
+              <bucket>&quot;Salford&quot;</bucket>
+              <bucket>&quot;North Tyneside&quot;</bucket>
+              <bucket>&quot;Runnymede&quot;</bucket>
+              <bucket>&quot;Epping Forest&quot;</bucket>
+              <bucket>&quot;Wigan&quot;</bucket>
+              <bucket>&quot;Swindon&quot;</bucket>
+              <bucket>&quot;Powys&quot;</bucket>
+              <bucket>&quot;Oldham&quot;</bucket>
+              <bucket>&quot;Sevenoaks&quot;</bucket>
+              <bucket>&quot;Barking and Dagenham&quot;</bucket>
+              <bucket>&quot;Thurrock&quot;</bucket>
+              <bucket>&quot;York&quot;</bucket>
+              <bucket>&quot;South Cambridgeshire&quot;</bucket>
+              <bucket>&quot;North Somerset&quot;</bucket>
+              <bucket>&quot;Merton&quot;</bucket>
+              <bucket>&quot;Stafford&quot;</bucket>
+              <bucket>&quot;Mid Sussex&quot;</bucket>
+              <bucket>&quot;Swale&quot;</bucket>
+              <bucket>&quot;Bedford&quot;</bucket>
+              <bucket>&quot;Basildon&quot;</bucket>
+              <bucket>&quot;Tandridge&quot;</bucket>
+              <bucket>&quot;Lancaster&quot;</bucket>
+              <bucket>&quot;St. Albans&quot;</bucket>
+              <bucket>&quot;Richmond upon Thames&quot;</bucket>
+              <bucket>&quot;Southend-on-Sea&quot;</bucket>
+              <bucket>&quot;West Berkshire&quot;</bucket>
+              <bucket>&quot;Stratford-upon-Avon&quot;</bucket>
+              <bucket>&quot;Aylesbury Vale&quot;</bucket>
+              <bucket>&quot;Colchester&quot;</bucket>
+              <bucket>&quot;Hertsmere&quot;</bucket>
+              <bucket>&quot;Bexley&quot;</bucket>
+              <bucket>&quot;Stockport&quot;</bucket>
+              <bucket>&quot;Windsor and Maidenhead&quot;</bucket>
+              <bucket>&quot;Flintshire&quot;</bucket>
+              <bucket>&quot;Isle of Wight&quot;</bucket>
+              <bucket>&quot;Chichester&quot;</bucket>
+              <bucket>&quot;Poole&quot;</bucket>
+              <bucket>&quot;Canterbury&quot;</bucket>
+              <bucket>&quot;Tonbridge and Malling&quot;</bucket>
+              <bucket>&quot;Ashford&quot;</bucket>
+              <bucket>&quot;South Staffordshire&quot;</bucket>
+              <bucket>&quot;North Kesteven&quot;</bucket>
+              <bucket>&quot;South Somerset&quot;</bucket>
+              <bucket>&quot;South Kesteven&quot;</bucket>
+              <bucket>&quot;Elmbridge&quot;</bucket>
+              <bucket>&quot;Thanet&quot;</bucket>
+              <bucket>&quot;St. Helens&quot;</bucket>
+              <bucket>&quot;Wycombe&quot;</bucket>
+              <bucket>&quot;Rochdale&quot;</bucket>
+              <bucket>&quot;King&apos;s Lynn and West Norfolk&quot;</bucket>
+              <bucket>&quot;East Staffordshire&quot;</bucket>
+              <bucket>&quot;Teignbridge&quot;</bucket>
+              <bucket>&quot;Trafford&quot;</bucket>
+              <bucket>&quot;Waverley&quot;</bucket>
+              <bucket>&quot;Chorley&quot;</bucket>
+              <bucket>&quot;Winchester&quot;</bucket>
+              <bucket>&quot;Harrow&quot;</bucket>
+              <bucket>&quot;Mole Valley&quot;</bucket>
+              <bucket>&quot;Sutton&quot;</bucket>
+              <bucket>&quot;East Devon&quot;</bucket>
+              <bucket>&quot;Oxford&quot;</bucket>
+              <bucket>&quot;South Oxfordshire&quot;</bucket>
+              <bucket>&quot;Spelthorne&quot;</bucket>
+              <bucket>&quot;West Lindsey&quot;</bucket>
+              <bucket>&quot;Surrey Heath&quot;</bucket>
+              <bucket>&quot;Chelmsford&quot;</bucket>
+              <bucket>&quot;Tunbridge Wells&quot;</bucket>
+              <bucket>&quot;Kingston upon Thames&quot;</bucket>
+              <bucket>&quot;Newark and Sherwood&quot;</bucket>
+              <bucket>&quot;West Lancashire&quot;</bucket>
+              <bucket>&quot;South Ribble&quot;</bucket>
+              <bucket>&quot;North Warwickshire&quot;</bucket>
+              <bucket>&quot;Knowsley&quot;</bucket>
+              <bucket>&quot;Bath and North East Somerset&quot;</bucket>
+              <bucket>&quot;Solihull&quot;</bucket>
+              <bucket>&quot;Tameside&quot;</bucket>
+              <bucket>&quot;Horsham&quot;</bucket>
+              <bucket>&quot;Stockton-on-Tees&quot;</bucket>
+              <bucket>&quot;Pembrokeshire&quot;</bucket>
+              <bucket>&quot;Basingstoke and Deane&quot;</bucket>
+              <bucket>&quot;Warwick&quot;</bucket>
+              <bucket>&quot;Reading&quot;</bucket>
+              <bucket>&quot;Tendring&quot;</bucket>
+              <bucket>&quot;South Norfolk&quot;</bucket>
+              <bucket>&quot;Norwich&quot;</bucket>
+              <bucket>&quot;Newcastle-under-Lyme&quot;</bucket>
+              <bucket>&quot;Telford and Wrekin&quot;</bucket>
+              <bucket>&quot;Bury&quot;</bucket>
+              <bucket>&quot;Suffolk Coastal&quot;</bucket>
+              <bucket>&quot;Northampton&quot;</bucket>
+              <bucket>&quot;South Bucks&quot;</bucket>
+              <bucket>&quot;Lichfield&quot;</bucket>
+              <bucket>&quot;West Dorset&quot;</bucket>
+              <bucket>&quot;South Lakeland&quot;</bucket>
+              <bucket>&quot;Neath Port Talbot&quot;</bucket>
+              <bucket>&quot;Bassetlaw&quot;</bucket>
+              <bucket>&quot;Test Valley&quot;</bucket>
+              <bucket>&quot;South Holland&quot;</bucket>
+              <bucket>&quot;Arun&quot;</bucket>
+              <bucket>&quot;Charnwood&quot;</bucket>
+              <bucket>&quot;Hambleton&quot;</bucket>
+              <bucket>&quot;Wychavon&quot;</bucket>
+              <bucket>&quot;Gwynedd&quot;</bucket>
+              <bucket>&quot;Wrexham&quot;</bucket>
+              <bucket>&quot;Ashfield&quot;</bucket>
+              <bucket>&quot;Halton&quot;</bucket>
+              <bucket>&quot;Carlisle&quot;</bucket>
+              <bucket>&quot;Ipswich&quot;</bucket>
+              <bucket>&quot;North Hertfordshire&quot;</bucket>
+              <bucket>&quot;Eastleigh&quot;</bucket>
+              <bucket>&quot;Cambridge&quot;</bucket>
+              <bucket>&quot;Rugby&quot;</bucket>
+              <bucket>&quot;Vale of White Horse&quot;</bucket>
+              <bucket>&quot;Dacorum&quot;</bucket>
+              <bucket>&quot;Conwy&quot;</bucket>
+              <bucket>&quot;Woking&quot;</bucket>
+              <bucket>&quot;East Hertfordshire&quot;</bucket>
+              <bucket>&quot;Rushcliffe&quot;</bucket>
+              <bucket>&quot;Allerdale&quot;</bucket>
+              <bucket>&quot;Lincoln&quot;</bucket>
+              <bucket>&quot;Welwyn Hatfield&quot;</bucket>
+              <bucket>&quot;Babergh&quot;</bucket>
+              <bucket>&quot;Breckland&quot;</bucket>
+              <bucket>&quot;Wyre&quot;</bucket>
+              <bucket>&quot;Dover&quot;</bucket>
+              <bucket>&quot;Shepway&quot;</bucket>
+              <bucket>&quot;Rother&quot;</bucket>
+              <bucket>&quot;Braintree&quot;</bucket>
+              <bucket>&quot;Gravesham&quot;</bucket>
+              <bucket>&quot;Torbay&quot;</bucket>
+              <bucket>&quot;Newport&quot;</bucket>
+              <bucket>&quot;South Tyneside&quot;</bucket>
+              <bucket>&quot;Sedgemoor&quot;</bucket>
+              <bucket>&quot;Wokingham&quot;</bucket>
+              <bucket>&quot;Bridgend&quot;</bucket>
+              <bucket>&quot;Blaby&quot;</bucket>
+              <bucket>&quot;Denbighshire&quot;</bucket>
+              <bucket>&quot;Amber Valley&quot;</bucket>
+              <bucket>&quot;North East Derbyshire&quot;</bucket>
+              <bucket>&quot;Middlesbrough&quot;</bucket>
+              <bucket>&quot;Broadland&quot;</bucket>
+              <bucket>&quot;Waveney&quot;</bucket>
+              <bucket>&quot;North Devon&quot;</bucket>
+              <bucket>&quot;Fareham&quot;</bucket>
+              <bucket>&quot;Taunton Deane&quot;</bucket>
+              <bucket>&quot;Burnley&quot;</bucket>
+              <bucket>&quot;Boston&quot;</bucket>
+              <bucket>&quot;North West Leicestershire&quot;</bucket>
+              <bucket>&quot;Staffordshire Moorlands&quot;</bucket>
+              <bucket>&quot;South Hams&quot;</bucket>
+              <bucket>&quot;The Vale of Glamorgan&quot;</bucket>
+              <bucket>&quot;St. Edmundsbury&quot;</bucket>
+              <bucket>&quot;Mendip&quot;</bucket>
+              <bucket>&quot;Crawley&quot;</bucket>
+              <bucket>&quot;Scarborough&quot;</bucket>
+              <bucket>&quot;Fenland&quot;</bucket>
+              <bucket>&quot;Gedling&quot;</bucket>
+              <bucket>&quot;Derbyshire Dales&quot;</bucket>
+              <bucket>&quot;East Hampshire&quot;</bucket>
+              <bucket>&quot;Lewes&quot;</bucket>
+              <bucket>&quot;Mid Suffolk&quot;</bucket>
+              <bucket>&quot;East Dorset&quot;</bucket>
+              <bucket>&quot;West Oxfordshire&quot;</bucket>
+              <bucket>&quot;Cannock Chase&quot;</bucket>
+              <bucket>&quot;Nuneaton and Bedworth&quot;</bucket>
+              <bucket>&quot;Havant&quot;</bucket>
+              <bucket>&quot;Darlington&quot;</bucket>
+              <bucket>&quot;Erewash&quot;</bucket>
+              <bucket>&quot;Broxtowe&quot;</bucket>
+              <bucket>&quot;South Derbyshire&quot;</bucket>
+              <bucket>&quot;Bolsover&quot;</bucket>
+              <bucket>&quot;Worthing&quot;</bucket>
+              <bucket>&quot;Mansfield&quot;</bucket>
+              <bucket>&quot;Cotswold&quot;</bucket>
+              <bucket>&quot;Fylde&quot;</bucket>
+              <bucket>&quot;Caerphilly&quot;</bucket>
+              <bucket>&quot;Selby&quot;</bucket>
+              <bucket>&quot;Harborough&quot;</bucket>
+              <bucket>&quot;Eastbourne&quot;</bucket>
+              <bucket>&quot;Bracknell Forest&quot;</bucket>
+              <bucket>&quot;Redcar and Cleveland&quot;</bucket>
+              <bucket>&quot;Hyndburn&quot;</bucket>
+              <bucket>&quot;Hinckley and Bosworth&quot;</bucket>
+              <bucket>&quot;Bromsgrove&quot;</bucket>
+              <bucket>&quot;Watford&quot;</bucket>
+              <bucket>&quot;Three Rivers&quot;</bucket>
+              <bucket>&quot;Ceredigion&quot;</bucket>
+              <bucket>&quot;Exeter&quot;</bucket>
+              <bucket>&quot;Wyre Forest&quot;</bucket>
+              <bucket>&quot;High Peak&quot;</bucket>
+              <bucket>&quot;Broxbourne&quot;</bucket>
+              <bucket>&quot;Pendle&quot;</bucket>
+              <bucket>&quot;Uttlesford&quot;</bucket>
+              <bucket>&quot;Chesterfield&quot;</bucket>
+              <bucket>&quot;Hastings&quot;</bucket>
+              <bucket>&quot;Eden&quot;</bucket>
+              <bucket>&quot;East Cambridgeshire&quot;</bucket>
+              <bucket>&quot;Brentwood&quot;</bucket>
+              <bucket>&quot;Copeland&quot;</bucket>
+              <bucket>&quot;Malvern Hills&quot;</bucket>
+              <bucket>&quot;Daventry&quot;</bucket>
+              <bucket>&quot;North Norfolk&quot;</bucket>
+              <bucket>&quot;South Northamptonshire&quot;</bucket>
+              <bucket>&quot;Hart&quot;</bucket>
+              <bucket>&quot;Ryedale&quot;</bucket>
+              <bucket>&quot;Richmondshire&quot;</bucket>
+              <bucket>&quot;Rushmoor&quot;</bucket>
+              <bucket>&quot;Craven&quot;</bucket>
+              <bucket>&quot;Stevenage&quot;</bucket>
+              <bucket>&quot;Gloucester&quot;</bucket>
+              <bucket>&quot;Forest Heath&quot;</bucket>
+              <bucket>&quot;West Devon&quot;</bucket>
+              <bucket>&quot;Kettering&quot;</bucket>
+              <bucket>&quot;Great Yarmouth&quot;</bucket>
+              <bucket>&quot;Rossendale&quot;</bucket>
+              <bucket>&quot;Rochford&quot;</bucket>
+              <bucket>&quot;Epsom and Ewell&quot;</bucket>
+              <bucket>&quot;Stroud&quot;</bucket>
+              <bucket>&quot;Mid Devon&quot;</bucket>
+              <bucket>&quot;Tewkesbury&quot;</bucket>
+              <bucket>&quot;Castle Point&quot;</bucket>
+              <bucket>&quot;City of London&quot;</bucket>
+              <bucket>&quot;Monmouthshire&quot;</bucket>
+              <bucket>&quot;Chiltern&quot;</bucket>
+              <bucket>&quot;Ribble Valley&quot;</bucket>
+              <bucket>&quot;Hartlepool&quot;</bucket>
+              <bucket>&quot;Worcester&quot;</bucket>
+              <bucket>&quot;Cheltenham&quot;</bucket>
+              <bucket>&quot;Adur&quot;</bucket>
+              <bucket>&quot;Forest of Dean&quot;</bucket>
+              <bucket>&quot;Torridge&quot;</bucket>
+              <bucket>&quot;Maldon&quot;</bucket>
+              <bucket>&quot;Purbeck&quot;</bucket>
+              <bucket>&quot;Melton&quot;</bucket>
+              <bucket>&quot;Wellingborough&quot;</bucket>
+              <bucket>&quot;Redditch&quot;</bucket>
+              <bucket>&quot;Gosport&quot;</bucket>
+              <bucket>&quot;Tamworth&quot;</bucket>
+              <bucket>&quot;Merthyr Tydfil&quot;</bucket>
+              <bucket>&quot;Barrow-in-Furness&quot;</bucket>
+              <bucket>&quot;Isle of Anglesey&quot;</bucket>
+              <bucket>&quot;Harlow&quot;</bucket>
+              <bucket>&quot;East Northamptonshire&quot;</bucket>
+              <bucket>&quot;North Dorset&quot;</bucket>
+              <bucket>&quot;Weymouth and Portland&quot;</bucket>
+              <bucket>&quot;Blaenau Gwent&quot;</bucket>
+              <bucket>&quot;Torfaen&quot;</bucket>
+              <bucket>&quot;Christchurch&quot;</bucket>
+              <bucket>&quot;Oadby and Wigston&quot;</bucket>
+              <bucket>&quot;Rutland&quot;</bucket>
+              <bucket>&quot;West Somerset&quot;</bucket>
+              <bucket>&quot;Corby&quot;</bucket>
+              <bucket>&quot;London Airport (Heathrow)&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0gejjvw03ymfy615k28sk0gzeeft].[none:SeverityName:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0gejjvw03ymfy615k28sk0gzeeft].[__tableau_internal_object_id__].[cnt:Fact_Casualty_E34FE2BD43FD49179A7BF7347139BAE8:qk]</rows>
+        <cols>([federated.0gejjvw03ymfy615k28sk0gzeeft].[none:LocalAuthorityDistrictName:nk] / [federated.0gejjvw03ymfy615k28sk0gzeeft].[yr:FullDate:ok])</cols>
+      </table>
+      <simple-id uuid='{09ED757E-021F-4B7C-933F-9676CC2CB61F}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0gejjvw03ymfy615k28sk0gzeeft].[none:SeverityName:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0gejjvw03ymfy615k28sk0gzeeft].[none:LocalAuthorityDistrictName:nk]</field>
+            <field>[federated.0gejjvw03ymfy615k28sk0gzeeft].[none:SeverityName:nk]</field>
+            <field>[federated.0gejjvw03ymfy615k28sk0gzeeft].[qr:FullDate:ok]</field>
+            <field>[federated.0gejjvw03ymfy615k28sk0gzeeft].[yr:FullDate:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{5A413FC7-815D-406A-9AFE-D51A620ED909}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
